@@ -53,6 +53,7 @@
 								<t t-if="currency[1] == 'before'">
 									<td class="cf_fld">
 <<<<<<< HEAD
+<<<<<<< HEAD
 										<t t-esc="currency[0]"/> <t t-raw="account['total_debit']"/>
 									</td>
 									<td class="cf_fld">
@@ -61,6 +62,8 @@
 									<td class="cf_fld">
 										<t t-esc="currency[0]"/> <t t-raw="account['total_balance']"/>
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 										<t t-esc="currency[0]"/> <t t-out="account['total_debit']"/>
 									</td>
 									<td class="cf_fld">
@@ -68,12 +71,16 @@
 									</td>
 									<td class="cf_fld">
 										<t t-esc="currency[0]"/> <t t-out="account['total_balance']"/>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 									</td>
 
 								</t>
 								<t t-else="">
 									<td class="cf_fld">
+<<<<<<< HEAD
 <<<<<<< HEAD
 										<t t-raw="account['total_debit']"/><t t-esc="currency[0]"/>
 									</td>
@@ -83,6 +90,8 @@
 									<td class="cf_fld">
 										<t t-raw="account['total_balance']"/><t t-esc="currency[0]"/>
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 										<t t-out="account['total_debit']"/><t t-esc="currency[0]"/>
 									</td>
 									<td class="cf_fld">
@@ -90,6 +99,9 @@
 									</td>
 									<td class="cf_fld">
 										<t t-out="account['total_balance']"/><t t-esc="currency[0]"/>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 									</td>
 								</t>
@@ -116,6 +128,7 @@
 								<t t-if="currency[1] == 'before'">
 									<td class="cf_fld">
 <<<<<<< HEAD
+<<<<<<< HEAD
 										<t t-esc="currency[0]"/> <t t-raw="account['total_debit']"/>
 									</td>
 									<td class="cf_fld">
@@ -124,6 +137,8 @@
 									<td class="cf_fld">
 										<t t-esc="currency[0]"/> <t t-raw="account['total_balance']"/>
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 										<t t-esc="currency[0]"/> <t t-out="account['total_debit']"/>
 									</td>
 									<td class="cf_fld">
@@ -131,12 +146,16 @@
 									</td>
 									<td class="cf_fld">
 										<t t-esc="currency[0]"/> <t t-out="account['total_balance']"/>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 									</td>
 
 								</t>
 								<t t-else="">
 									<td class="cf_fld">
+<<<<<<< HEAD
 <<<<<<< HEAD
 										<t t-raw="account['total_debit']"/><t t-esc="currency[0]"/>
 									</td>
@@ -146,6 +165,8 @@
 									<td class="cf_fld">
 										<t t-raw="account['total_balance']"/><t t-esc="currency[0]"/>
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 										<t t-out="account['total_debit']"/><t t-esc="currency[0]"/>
 									</td>
 									<td class="cf_fld">
@@ -153,6 +174,9 @@
 									</td>
 									<td class="cf_fld">
 										<t t-out="account['total_balance']"/><t t-esc="currency[0]"/>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 									</td>
 								</t>
@@ -179,6 +203,7 @@
 
     <t t-name="CashFilterView">
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 		<div class="row" style="margin-right: 10px; margin-left: 10px;">
             <div class="sub_container_left" style="width:70%;">
@@ -228,6 +253,8 @@
                             </div>
                         </div>
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 		<div class="" style="position: relative;">
 			<div class="sub_container_left">
 				<div class="report_print">
@@ -263,6 +290,9 @@ Date Range
 							</div>
 						</div>
 					</div>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 
 
@@ -293,6 +323,7 @@ Level:
 						<span id="level_res"> </span>
 					</div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 				<div style="">
 						<button type="button" id="apply_filter" class="btn btn-primary" style="top:0px;height:30px;color:white;background-color: #00A0AD;border-color: #00A0AD;">Apply</button>
 
@@ -304,6 +335,8 @@ Level:
 <!--				</div>-->
 
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 
 
 					</div>
@@ -313,6 +346,9 @@ Level:
 						<button type="button" id="apply_filter" class="btn btn-primary" style="top:0px;height:30px;right:20px;position: absolute;color:white;background-color: #00A0AD;border-color: #00A0AD;">Apply</button>
 
 				</div>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 			</div>
 		</div>
@@ -346,6 +382,7 @@ Level:
 										<t t-if="currency[1] == 'before'">
 										<td class="cf_fld">
 <<<<<<< HEAD
+<<<<<<< HEAD
 											<t t-esc="currency[0]"/><t t-raw="account_line.total_debit"/>
 										</td>
 										<td class="cf_fld">
@@ -354,6 +391,8 @@ Level:
 										<td class="cf_fld">
 											<t t-esc="currency[0]"/><t t-raw="account_line.balance"/>
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 											<t t-esc="currency[0]"/><t t-out="account_line.total_debit"/>
 										</td>
 										<td class="cf_fld">
@@ -361,11 +400,15 @@ Level:
 										</td>
 										<td class="cf_fld">
 											<t t-esc="currency[0]"/><t t-out="account_line.balance"/>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 										</td>
 										</t>
 										<t t-else="">
 										<td class="cf_fld">
+<<<<<<< HEAD
 <<<<<<< HEAD
 											<t t-raw="account_line.total_debit"/><t t-esc="currency[0]"/>
 										</td>
@@ -375,6 +418,8 @@ Level:
 										<td class="cf_fld">
 											<t t-raw="account_line.balance"/><t t-esc="currency[0]"/>
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 											<t t-out="account_line.total_debit"/><t t-esc="currency[0]"/>
 										</td>
 										<td class="cf_fld">
@@ -382,6 +427,9 @@ Level:
 										</td>
 										<td class="cf_fld">
 											<t t-out="account_line.balance"/><t t-esc="currency[0]"/>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 										</td>
 										</t>
@@ -429,6 +477,7 @@ Level:
 							<td class="cf_fld">
 								<t t-esc="currency[0]"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 								<t t-raw="account_line.total_debit"/>
 							</td>
 							<td class="cf_fld">
@@ -439,6 +488,8 @@ Level:
 								<t t-esc="currency[0]"/>
 								<t t-raw="account_line.balance"/>
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 								<t t-out="account_line.total_debit"/>
 							</td>
 							<td class="cf_fld">
@@ -448,6 +499,9 @@ Level:
 							<td class="cf_fld">
 								<t t-esc="currency[0]"/>
 								<t t-out="account_line.balance"/>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 							</td>
 							</t>
@@ -459,7 +513,11 @@ Level:
 							<td class="cf_fld">
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 								<t t-raw="account_line.total_credit"/>
+=======
+								<t t-out="account_line.total_credit"/>
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 								<t t-out="account_line.total_credit"/>
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -468,7 +526,11 @@ Level:
 							<td class="cf_fld">
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 								<t t-raw="account_line.balance"/>
+=======
+								<t t-out="account_line.balance"/>
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 								<t t-out="account_line.balance"/>
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108

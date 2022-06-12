@@ -101,7 +101,11 @@
                                     <t t-if="a.get('code')">
                                        <t t-foreach="account_data" t-as="line">
 <<<<<<< HEAD
+<<<<<<< HEAD
                                             <t t-if="line['id'] == a.get('account')">
+=======
+                                            <t t-if="line['code'] == a.get('code')">
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                                             <t t-if="line['code'] == a.get('code')">
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108

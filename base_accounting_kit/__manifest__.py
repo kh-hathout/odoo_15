@@ -23,7 +23,11 @@
 {
     'name': 'Odoo 15 Full Accounting Kit',
 <<<<<<< HEAD
+<<<<<<< HEAD
     'version': '15.0.2.2.2',
+=======
+    'version': '15.0.2.0.1',
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
     'version': '15.0.2.0.1',
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108

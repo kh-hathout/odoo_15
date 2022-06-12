@@ -3,6 +3,10 @@ from datetime import datetime
 
 from odoo import models, api, fields
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+from odoo.http import request
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 from odoo.http import request
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -81,7 +85,10 @@ class AccountCasgFlow(models.TransientModel):
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
     def get_current_company_value(self):
 
         cookies_cids = [int(r) for r in request.httprequest.cookies.get('cids').split(",")] \
@@ -96,6 +103,9 @@ class AccountCasgFlow(models.TransientModel):
             cookies_cids.append(0)
         return cookies_cids
 
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
     def get_filter(self, option):
         data = self.get_filter_data(option)
@@ -129,13 +139,19 @@ class AccountCasgFlow(models.TransientModel):
         r = self.env['account.cash.flow'].search([('id', '=', option[0])])
         default_filters = {}
 <<<<<<< HEAD
+<<<<<<< HEAD
         company_id = self.env.companies
         company_domain = [('company_id', 'in', company_id.ids)]
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         company = self.get_current_company_value()[0]
         company_id = self.env['res.company'].search([('id', '=', int(company))])
         # company_id = self.env.company
         company_domain = [('company_id', '=', company_id.id)]
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         journals = r.journal_ids if r.journal_ids else self.env['account.journal'].search(company_domain)
         accounts = self.account_ids if self.account_ids else self.env['account.account'].search(company_domain)
@@ -144,7 +160,11 @@ class AccountCasgFlow(models.TransientModel):
             'journal_ids': r.journal_ids.ids,
             'account_ids': self.account_ids.ids,
 <<<<<<< HEAD
+<<<<<<< HEAD
             'company_id': company_id.ids,
+=======
+            'company_id': company_id.id,
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
             'company_id': company_id.id,
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -155,7 +175,11 @@ class AccountCasgFlow(models.TransientModel):
             'journals_list': [(j.id, j.name, j.code) for j in journals],
             'accounts_list': [(a.id, a.name) for a in accounts],
 <<<<<<< HEAD
+<<<<<<< HEAD
             'company_name': ', '.join(self.env.companies.mapped('name')),
+=======
+            'company_name': company_id and company_id.name,
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
             'company_name': company_id and company_id.name,
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -167,7 +191,13 @@ class AccountCasgFlow(models.TransientModel):
         cr = self.env.cr
         data = self.get_filter(option)
 <<<<<<< HEAD
+<<<<<<< HEAD
         company_id = self.env.company
+=======
+        company = self.get_current_company_value()[0]
+        company_id = self.env['res.company'].search([('id', '=', int(company))])
+        # company_id = self.env.company
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
         company = self.get_current_company_value()[0]
         company_id = self.env['res.company'].search([('id', '=', int(company))])
@@ -183,17 +213,23 @@ class AccountCasgFlow(models.TransientModel):
         journal_res = []
         fetched = []
 <<<<<<< HEAD
+<<<<<<< HEAD
         account_type_id = self.env.ref('account.data_account_type_liquidity').id
         model = self.env.context.get('active_model')
         if data.get('levels') == 'summary':
             state = """ AND am.state = 'posted' """ if data.get('target_move') == 'Posted' else ''
             state2 = ' AND aml.company_id IN %s' % str(tuple(self.env.companies.ids) + tuple([0]))
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 
         account_type_id = self.env.ref('account.data_account_type_liquidity').id
         model = self.env.context.get('active_model')
         if data.get('levels') == 'summary':
             state = """ WHERE am.state = 'posted' """ if data.get('target_move') == 'posted' else ''
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             query3 = """SELECT to_char(am.date, 'Month') as month_part, extract(YEAR from am.date) as year_part,
                          sum(aml.debit) AS total_debit, sum(aml.credit) AS total_credit,
@@ -201,6 +237,7 @@ class AccountCasgFlow(models.TransientModel):
                                  LEFT JOIN account_move_line aml ON aml.move_id = am.id
                                  LEFT JOIN account_account aa ON aa.id = aml.account_id
                                  LEFT JOIN account_account_type aat ON aat.id = aa.user_type_id
+<<<<<<< HEAD
 <<<<<<< HEAD
                                  WHERE am.date BETWEEN '""" + str(
                 data.get('date_from')) + """' and '""" + str(
@@ -211,6 +248,8 @@ class AccountCasgFlow(models.TransientModel):
                                              LEFT JOIN account_account_type aat ON aat.id = aa.user_type_id
                                              GROUP BY month_part,year_part"""
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                  LEFT JOIN res_company cmp ON cmp.id = am.company_id
                                  WHERE am.date BETWEEN '""" + str(
                 data.get('date_from')) + """' and '""" + str(
@@ -221,6 +260,9 @@ class AccountCasgFlow(models.TransientModel):
                                              LEFT JOIN account_account aa ON aa.id = aml.account_id
                                              LEFT JOIN account_account_type aat ON aat.id = aa.user_type_id
                                              """ + state + """GROUP BY month_part,year_part"""
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             cr = self._cr
             cr.execute(query3)
@@ -230,9 +272,13 @@ class AccountCasgFlow(models.TransientModel):
                 'account.data_account_type_liquidity').id
             state = """AND am.state = 'posted' """ if data.get(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 'target_move') == 'Posted' else """AND am.state in ('draft','posted') """
 
             state2 = ' AND aml.company_id IN %s' % str(tuple(self.env.companies.ids) + tuple([0]))
+=======
+                'target_move') == 'posted' else ''
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                 'target_move') == 'posted' else ''
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -243,17 +289,23 @@ class AccountCasgFlow(models.TransientModel):
                                                 LEFT JOIN account_account aa ON aa.id = aml.account_id
                                                 LEFT JOIN account_account_type aat ON aat.id = aa.user_type_id
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                 WHERE am.date BETWEEN '""" + str(
                 data.get('date_from')) + """' and '""" + str(
                 data.get('date_to')) + """' AND aat.id='""" + str(
                 account_type_id) + """' """ + state + state2 +""") am
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                                 LEFT JOIN res_company cmp ON cmp.id = am.company_id
                                                 WHERE am.date BETWEEN '""" + str(
                 data.get('date_from')) + """' and '""" + str(
                 data.get('date_to')) + """' AND aat.id='""" + str(
                 account_type_id) + """' AND cmp.id='""" + str(
                 company_id.id) + """' """ + state + """) am
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                                                     LEFT JOIN account_move_line aml ON aml.move_id = am.id
                                                                     LEFT JOIN account_account aa ON aa.id = aml.account_id
@@ -267,9 +319,13 @@ class AccountCasgFlow(models.TransientModel):
                 'account.data_account_type_liquidity').id
             state = """AND am.state = 'posted' """ if data.get(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 'target_move') == 'Posted' else """AND am.state in ('draft','posted') """
 
             state2 = ' AND aml.company_id IN %s' % str(tuple(self.env.companies.ids) + tuple([0]))
+=======
+                'target_move') == 'posted' else ''
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                 'target_move') == 'posted' else ''
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -280,17 +336,23 @@ class AccountCasgFlow(models.TransientModel):
                                                            LEFT JOIN account_account aa ON aa.id = aml.account_id
                                                            LEFT JOIN account_account_type aat ON aat.id = aa.user_type_id
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                            WHERE am.date BETWEEN '""" + str(
                 data.get('date_from')) + """' and '""" + str(
                 data.get('date_to')) + """' AND aat.id='""" + str(
                 account_type_id) + """' """ + state + state2 + """) am
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                                            LEFT JOIN res_company cmp ON cmp.id = am.company_id
                                                            WHERE am.date BETWEEN '""" + str(
                 data.get('date_from')) + """' and '""" + str(
                 data.get('date_to')) + """' AND aat.id='""" + str(
                 account_type_id) + """' AND cmp.id='""" + str(
                 company_id.id) + """' """ + state + """) am
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                                                                LEFT JOIN account_move_line aml ON aml.move_id = am.id
                                                                                LEFT JOIN account_account aa ON aa.id = aml.account_id
@@ -304,9 +366,13 @@ class AccountCasgFlow(models.TransientModel):
                 'account.data_account_type_liquidity').id
             state = """AND am.state = 'posted' """ if data.get(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 'target_move') == 'Posted' else """AND am.state in ('draft','posted') """
 
             state2 = ' AND aml.company_id IN %s' % str(tuple(self.env.companies.ids) + tuple([0]))
+=======
+                'target_move') == 'posted' else ''
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                 'target_move') == 'posted' else ''
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -317,17 +383,23 @@ class AccountCasgFlow(models.TransientModel):
                                                            LEFT JOIN account_account aa ON aa.id = aml.account_id
                                                            LEFT JOIN account_account_type aat ON aat.id = aa.user_type_id
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                            WHERE am.date BETWEEN '""" + str(
                 data.get('date_from')) + """' and '""" + str(
                 data.get('date_to')) + """' AND aat.id='""" + str(
                 account_type_id) + """' """ + state + state2 + """) am
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                                            LEFT JOIN res_company cmp ON cmp.id = am.company_id
                                                            WHERE am.date BETWEEN '""" + str(
                 data.get('date_from')) + """' and '""" + str(
                 data.get('date_to')) + """' AND aat.id='""" + str(
                 account_type_id) + """' AND cmp.id='""" + str(
                 company_id.id) + """' """ + state + """) am
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                                                                LEFT JOIN account_move_line aml ON aml.move_id = am.id
                                                                                LEFT JOIN account_account aa ON aa.id = aml.account_id
@@ -342,9 +414,13 @@ class AccountCasgFlow(models.TransientModel):
                 'account.data_account_type_liquidity').id
             state = """AND am.state = 'posted' """ if data.get(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 'target_move') == 'Posted' else """AND am.state in ('draft','posted') """
 
             state2 = ' AND aml.company_id IN %s' % str(tuple(self.env.companies.ids) + tuple([0]))
+=======
+                'target_move') == 'posted' else ''
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                 'target_move') == 'posted' else ''
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -355,17 +431,23 @@ class AccountCasgFlow(models.TransientModel):
                                                 LEFT JOIN account_account aa ON aa.id = aml.account_id
                                                 LEFT JOIN account_account_type aat ON aat.id = aa.user_type_id
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                 WHERE am.date BETWEEN '""" + str(
                 data.get('date_from')) + """' and '""" + str(
                 data.get('date_to')) + """' AND aat.id='""" + str(
                 account_type_id) + """' """ + state + state2 + """) am
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                                 LEFT JOIN res_company cmp ON cmp.id = am.company_id
                                                 WHERE am.date BETWEEN '""" + str(
                 data.get('date_from')) + """' and '""" + str(
                 data.get('date_to')) + """' AND aat.id='""" + str(
                 account_type_id) + """' AND cmp.id='""" + str(
                 company_id.id) + """' """ + state + """) am
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                                                     LEFT JOIN account_move_line aml ON aml.move_id = am.id
                                                                     LEFT JOIN account_account aa ON aa.id = aml.account_id
@@ -377,8 +459,12 @@ class AccountCasgFlow(models.TransientModel):
 
         elif data.get('levels') == 'consolidated':
 <<<<<<< HEAD
+<<<<<<< HEAD
             state = """ AND am.state = 'posted' """ if data.get('target_move') == 'Posted' else ''
             state2 = ' AND aml.company_id IN %s' % str(tuple(self.env.companies.ids) + tuple([0]))
+=======
+            state = """ WHERE am.state = 'posted' """ if data.get('target_move') == 'posted' else ''
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
             state = """ WHERE am.state = 'posted' """ if data.get('target_move') == 'posted' else ''
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -388,6 +474,7 @@ class AccountCasgFlow(models.TransientModel):
                          LEFT JOIN account_account aa ON aa.id = aml.account_id
                          LEFT JOIN account_account_type aat ON aat.id = aa.user_type_id
 <<<<<<< HEAD
+<<<<<<< HEAD
                          WHERE am.date BETWEEN '""" + str(data.get('date_from')) + """' and '""" + str(
                 data.get('date_to')) + """' AND aat.id='""" + str(
                 account_type_id) + """' """ + state + state2 + """) am
@@ -396,6 +483,8 @@ class AccountCasgFlow(models.TransientModel):
                                      LEFT JOIN account_account_type aat ON aat.id = aa.user_type_id
                                      GROUP BY aat.name"""
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                          LEFT JOIN res_company cmp ON cmp.id = am.company_id
                          WHERE am.date BETWEEN '""" + str(data.get('date_from')) + """' and '""" + str(
                 data.get('date_to')) + """' AND aat.id='""" + str(
@@ -405,14 +494,21 @@ class AccountCasgFlow(models.TransientModel):
                                      LEFT JOIN account_account aa ON aa.id = aml.account_id
                                      LEFT JOIN account_account_type aat ON aat.id = aa.user_type_id
                                      """ + state + """GROUP BY aat.name"""
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             cr = self._cr
             cr.execute(query2)
             fetched_data = cr.dictfetchall()
         elif data.get('levels') == 'detailed':
 <<<<<<< HEAD
+<<<<<<< HEAD
             state = """AND am.state = 'posted' """ if data.get('target_move') == 'Posted' else """AND am.state in ('draft','posted') """
             state2 = ' AND aml.company_id IN %s' % str(tuple(self.env.companies.ids) + tuple([0]))
+=======
+            state = """ WHERE am.state = 'posted' """ if data.get('target_move') == 'posted' else ''
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
             state = """ WHERE am.state = 'posted' """ if data.get('target_move') == 'posted' else ''
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -421,6 +517,7 @@ class AccountCasgFlow(models.TransientModel):
                          LEFT JOIN account_move_line aml ON aml.move_id = am.id
                          LEFT JOIN account_account aa ON aa.id = aml.account_id
                          LEFT JOIN account_account_type aat ON aat.id = aa.user_type_id
+<<<<<<< HEAD
 <<<<<<< HEAD
                          WHERE am.date BETWEEN '""" + str(
                 data.get('date_from')) + """' and '""" + str(
@@ -431,6 +528,8 @@ class AccountCasgFlow(models.TransientModel):
                                      LEFT JOIN account_account_type aat ON aat.id = aa.user_type_id
                                      GROUP BY aa.name, aa.code, aa.id"""
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                          LEFT JOIN res_company cmp ON cmp.id = am.company_id
                          WHERE am.date BETWEEN '""" + str(
                 data.get('date_from')) + """' and '""" + str(
@@ -441,6 +540,9 @@ class AccountCasgFlow(models.TransientModel):
                                      LEFT JOIN account_account aa ON aa.id = aml.account_id
                                      LEFT JOIN account_account_type aat ON aat.id = aa.user_type_id
                                      """ + state + """GROUP BY aa.name, aa.code, aa.id"""
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             cr = self._cr
             cr.execute(query1)
@@ -454,9 +556,13 @@ class AccountCasgFlow(models.TransientModel):
             account_type_id = self.env.ref(
                 'account.data_account_type_liquidity').id
 <<<<<<< HEAD
+<<<<<<< HEAD
             state = """AND am.state = 'posted' """ if data.get('target_move') == 'Posted' else """AND am.state in ('draft','posted') """
             state2 = ' AND aml.company_id IN %s' % str(tuple(self.env.companies.ids) + tuple([0]))
             # filter = " AND aml.parent_state in ('draft','posted')"
+=======
+            state = """AND am.state = 'posted' """ if data.get('target_move') == 'posted' else ''
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
             state = """AND am.state = 'posted' """ if data.get('target_move') == 'posted' else ''
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -467,17 +573,23 @@ class AccountCasgFlow(models.TransientModel):
                                              LEFT JOIN account_account aa ON aa.id = aml.account_id
                                              LEFT JOIN account_account_type aat ON aat.id = aa.user_type_id
 <<<<<<< HEAD
+<<<<<<< HEAD
                                              WHERE am.date BETWEEN '""" + str(
                 data.get('date_from')) + """' and '""" + str(
                 data.get('date_to')) + """' AND aat.id='""" + str(
                 account_type_id) + """' """ + state + state2 +""") am
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                              LEFT JOIN res_company cmp ON cmp.id = am.company_id
                                              WHERE am.date BETWEEN '""" + str(
                 data.get('date_from')) + """' and '""" + str(
                 data.get('date_to')) + """' AND aat.id='""" + str(
                 account_type_id) + """' AND cmp.id='""" + str(
                 company_id.id) + """' """ + state + """) am
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                                                  LEFT JOIN account_move_line aml ON aml.move_id = am.id
                                                                  LEFT JOIN account_account aa ON aa.id = aml.account_id
@@ -513,8 +625,12 @@ class AccountCasgFlow(models.TransientModel):
         account_type_id = self.env.ref(
             'account.data_account_type_liquidity').id
 <<<<<<< HEAD
+<<<<<<< HEAD
         state = """AND am.state = 'posted' """ if data.get('target_move') == 'Posted' else """AND am.state in ('draft','posted') """
         state2 = ' AND aml.company_id IN %s' % str(tuple(self.env.companies.ids) + tuple([0]))
+=======
+        state = """AND am.state = 'posted' """ if data.get('target_move') == 'posted' else ''
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
         state = """AND am.state = 'posted' """ if data.get('target_move') == 'posted' else ''
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -527,7 +643,11 @@ class AccountCasgFlow(models.TransientModel):
             data.get('date_from')) + """' and '""" + str(
             data.get('date_to')) + """' AND aat.id='""" + str(
 <<<<<<< HEAD
+<<<<<<< HEAD
             account_type_id) + """' """ + state + state2 + """) am
+=======
+            account_type_id) + """' """ + state + """) am
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
             account_type_id) + """' """ + state + """) am
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -550,7 +670,11 @@ class AccountCasgFlow(models.TransientModel):
             data.get('date_from')) + """' and '""" + str(
             data.get('date_to')) + """' AND aat.id='""" + str(
 <<<<<<< HEAD
+<<<<<<< HEAD
             account_type_id) + """' """ + state + state2 + """) am
+=======
+            account_type_id) + """' """ + state + """) am
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
             account_type_id) + """' """ + state + """) am
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -579,8 +703,12 @@ class AccountCasgFlow(models.TransientModel):
             'account.data_account_type_liquidity').id
         offset_count = offset * fetch_range
 <<<<<<< HEAD
+<<<<<<< HEAD
         state = """AND am.state = 'posted' """ if data.get('target_move') == 'Posted' else """AND am.state in ('draft','posted') """
         state2 = ' AND aml.company_id IN %s' % str(tuple(self.env.companies.ids) + tuple([0]))
+=======
+        state = """AND am.state = 'posted' """ if data.get('target_move') == 'posted' else ''
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
         state = """AND am.state = 'posted' """ if data.get('target_move') == 'posted' else ''
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -593,7 +721,11 @@ class AccountCasgFlow(models.TransientModel):
             data.get('date_from')) + """' and '""" + str(
             data.get('date_to')) + """' AND aat.id='""" + str(
 <<<<<<< HEAD
+<<<<<<< HEAD
             account_type_id) + """' """ + state + state2 + """) am
+=======
+            account_type_id) + """' """ + state + """) am
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
             account_type_id) + """' """ + state + """) am
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -641,6 +773,11 @@ class AccountCasgFlow(models.TransientModel):
     @api.model
     def _get_currency(self):
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        company = self.get_current_company_value()[0]
+        company_id = self.env['res.company'].search([('id', '=', int(company))])
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
         company = self.get_current_company_value()[0]
         company_id = self.env['res.company'].search([('id', '=', int(company))])
@@ -654,13 +791,19 @@ class AccountCasgFlow(models.TransientModel):
             lang = 'en_US'
         lang = lang.replace("_", '-')
 <<<<<<< HEAD
+<<<<<<< HEAD
         currency_array = [self.env.company.currency_id.symbol,
                           self.env.company.currency_id.position, lang]
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         # currency_array = [self.env.company.currency_id.symbol,
         #                   self.env.company.currency_id.position, lang]
         currency_array = [company_id.currency_id.symbol,
                           company_id.currency_id.position, lang]
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         return currency_array
 
@@ -761,7 +904,11 @@ class AccountCasgFlow(models.TransientModel):
             if data['levels'] == 'detailed':
                 for k in fetched_data_list:
 <<<<<<< HEAD
+<<<<<<< HEAD
                     if k['id'] == j_rec['id']:
+=======
+                    if k['name'] == j_rec['account']:
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                     if k['name'] == j_rec['account']:
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -784,7 +931,11 @@ class AccountCasgFlow(models.TransientModel):
             if data['levels'] == 'very':
                 for k in fetched_data_list:
 <<<<<<< HEAD
+<<<<<<< HEAD
                     if k['id'] == j_rec['id']:
+=======
+                    if k['name'] == j_rec['account']:
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                     if k['name'] == j_rec['account']:
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108

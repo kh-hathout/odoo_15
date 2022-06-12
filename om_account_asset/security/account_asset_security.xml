@@ -8,7 +8,11 @@
             <field ref="model_account_asset_category" name="model_id"/>
             <field eval="True" name="global"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+=======
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
             <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -19,8 +23,11 @@
             <field ref="model_account_asset_asset" name="model_id"/>
             <field eval="True" name="global"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
         </record>
 
@@ -29,6 +36,9 @@
             <field name="implied_ids" eval="[(4, ref('account.group_account_invoice'))]"/>
             <field name="category_id" ref="base.module_category_accounting_accounting"/>
             <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         </record>
 

@@ -1,6 +1,7 @@
 <odoo>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     <template id="dynamic_accounts_report.trial_balance">
 <!--    <t t-call="web.html_container">-->
 <!--        <t t-foreach="docs" t-as="doc">-->
@@ -10,6 +11,11 @@
 </template>
 
     <template id="dynamic_accounts_report.trial_balance1">
+=======
+
+
+    <template id="dynamic_accounts_report.trial_balance">
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 
 

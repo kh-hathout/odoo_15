@@ -4,7 +4,11 @@
 {
     'name': 'Odoo 15 Assets Management',
 <<<<<<< HEAD
+<<<<<<< HEAD
     'version': '15.0.6.7.0',
+=======
+    'version': '15.0.1.0.0',
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
     'version': '15.0.1.0.0',
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -26,7 +30,11 @@
         'wizard/asset_modify_views.xml',
         'views/account_asset_views.xml',
 <<<<<<< HEAD
+<<<<<<< HEAD
         'views/account_move_views.xml',
+=======
+        'views/account_invoice_views.xml',
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
         'views/account_invoice_views.xml',
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108

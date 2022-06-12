@@ -10,9 +10,12 @@ odoo.define('dynamic_cash_flow_statements.cash_flow', function (require) {
     var _t = core._t;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     var datepicker = require('web.datepicker');
     var time = require('web.time');
 
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
     window.click_num = 0;
@@ -26,7 +29,10 @@ odoo.define('dynamic_cash_flow_statements.cash_flow', function (require) {
             'click #xlsx': 'print_xlsx',
             'click .cf-line': 'get_move_lines',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'mousedown div.input-group.date[data-target-input="nearest"]': '_onCalendarIconClick',
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         },
@@ -53,6 +59,7 @@ odoo.define('dynamic_cash_flow_statements.cash_flow', function (require) {
                 self.load_data(self.initial_render);
             })
         },
+<<<<<<< HEAD
 <<<<<<< HEAD
         _onCalendarIconClick: function (ev) {
         var $calendarInputGroup = $(ev.currentTarget);
@@ -82,6 +89,8 @@ odoo.define('dynamic_cash_flow_statements.cash_flow', function (require) {
 
         $calendarInputGroup.datetimepicker(calendarOptions);
     },
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 
@@ -341,6 +350,7 @@ odoo.define('dynamic_cash_flow_statements.cash_flow', function (require) {
             }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 //            if ($("#date_from").val()) {
 //                var dateString = $("#date_from").val();
 //                filter_data_selected.date_from = dateString;
@@ -357,6 +367,8 @@ odoo.define('dynamic_cash_flow_statements.cash_flow', function (require) {
             if (this.$el.find('.datetimepicker-input[name="date_to"]').val()) {
                 filter_data_selected.date_to = moment(this.$el.find('.datetimepicker-input[name="date_to"]').val(), time.getLangDateFormat()).locale('en').format('YYYY-MM-DD');
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             if ($("#date_from").val()) {
                 var dateString = $("#date_from").val();
                 filter_data_selected.date_from = dateString;
@@ -364,6 +376,9 @@ odoo.define('dynamic_cash_flow_statements.cash_flow', function (require) {
             if ($("#date_to").val()) {
                 var dateString = $("#date_to").val();
                 filter_data_selected.date_to = dateString;
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             }
 

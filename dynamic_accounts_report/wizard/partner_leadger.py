@@ -5,7 +5,11 @@ import io
 import json
 from odoo.exceptions import AccessError, UserError, AccessDenied
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+from odoo.http import request
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 from odoo.http import request
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -83,7 +87,10 @@ class PartnerView(models.TransientModel):
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
     def get_current_company_value(self):
 
         cookies_cids = [int(r) for r in request.httprequest.cookies.get('cids').split(",")] \
@@ -98,6 +105,9 @@ class PartnerView(models.TransientModel):
             cookies_cids.append(0)
         return cookies_cids
 
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
     def get_filter(self, option):
         data = self.get_filter_data(option)
@@ -154,12 +164,15 @@ class PartnerView(models.TransientModel):
         r = self.env['account.partner.ledger'].search([('id', '=', option[0])])
         default_filters = {}
 <<<<<<< HEAD
+<<<<<<< HEAD
         company_id = self.env.companies.ids
         company_domain = [('company_id', 'in', company_id)]
         journal_ids = r.journal_ids if r.journal_ids else self.env['account.journal'].search(company_domain, order="company_id, name")
         accounts_ids = self.account_ids if self.account_ids else self.env['account.account'].search(company_domain, order="company_id, name")
 
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         # company_id = self.env.company
         company = self.get_current_company_value()
         company_id = self.env['res.company'].search([('id', 'in', company)])
@@ -167,6 +180,9 @@ class PartnerView(models.TransientModel):
         journals = r.journal_ids if r.journal_ids else self.env['account.journal'].search(company_domain)
         company_domain += [('user_type_id.type', 'in', ('receivable', 'payable'))]
         accounts = self.account_ids if self.account_ids else self.env['account.account'].search(company_domain)
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 
         partner = r.partner_ids if r.partner_ids else self.env[
@@ -176,6 +192,7 @@ class PartnerView(models.TransientModel):
         account_types = r.account_type_ids if r.account_type_ids \
             else self.env['account.account.type'].search([('type', 'in', ('receivable', 'payable'))])
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         journals = []
         o_company = False
@@ -208,6 +225,8 @@ class PartnerView(models.TransientModel):
             # 'company_name': company_id and company_id.name,
             'company_name': ', '.join(self.env.companies.mapped('name')),
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         filter_dict = {
             'journal_ids': r.journal_ids.ids,
             'account_ids': r.account_ids.ids,
@@ -218,6 +237,9 @@ class PartnerView(models.TransientModel):
             'journals_list': [(j.id, j.name, j.code) for j in journals],
             'accounts_list': [(a.id, a.name) for a in accounts],
             'company_name': company_id[0] and company_id[0].name,
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             'partners': r.partner_ids.ids,
             'reconciled': r.reconciled,
@@ -236,6 +258,7 @@ class PartnerView(models.TransientModel):
         display_account = data['display_account']
         init_balance = True
 <<<<<<< HEAD
+<<<<<<< HEAD
         company_id = self.env.companies.ids
         accounts = self.env['account.account'].search([('user_type_id.type', 'in', ('receivable', 'payable')),
                                                        ('company_id', 'in', company_id)])
@@ -243,6 +266,8 @@ class PartnerView(models.TransientModel):
             accounts = self.env['account.account'].search(
                 [('user_type_id.id', 'in', data['account_type'].ids),('company_id', 'in', company_id)])
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         company = self.get_current_company_value()
         company_id = self.env['res.company'].search([('id', 'in', company)])
         accounts = self.env['account.account'].search([('user_type_id.type', 'in', ('receivable', 'payable')),
@@ -250,6 +275,9 @@ class PartnerView(models.TransientModel):
         if data['account_type']:
             accounts = self.env['account.account'].search(
                 [('user_type_id.id', 'in', data['account_type'].ids), ('company_id', '=', company_id.id)])
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 
         partners = self.env['res.partner'].search([])
@@ -260,7 +288,11 @@ class PartnerView(models.TransientModel):
         if not accounts:
             raise UserError(_("No Accounts Found! Please Add One"))
 <<<<<<< HEAD
+<<<<<<< HEAD
         partner_res = self._get_partners(partners,accounts, init_balance, display_account, data)
+=======
+        partner_res = self._get_partners(partners, accounts, init_balance, display_account, data)
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
         partner_res = self._get_partners(partners, accounts, init_balance, display_account, data)
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -323,13 +355,19 @@ class PartnerView(models.TransientModel):
         move_lines = {x: [] for x in partners.ids}
         currency_id = self.env.company.currency_id
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         tables, where_clause, where_params = move_line._query_get()
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         company = self.get_current_company_value()[0]
         company_id = self.env['res.company'].search([('id', '=', int(company))])
         tables, where_clause, where_params = move_line._query_get()
         where_params[0] = int(company_id.id)
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         wheres = [""]
         if where_clause.strip():
@@ -377,7 +415,11 @@ class PartnerView(models.TransientModel):
                     JOIN account_journal j ON (l.journal_id=j.id)\
                     JOIN account_account acc ON (l.account_id = acc.id) '''
 <<<<<<< HEAD
+<<<<<<< HEAD
                     + WHERE + new_final_filter + ''' GROUP BY l.id, m.id,  l.account_id, l.date, j.code, l.currency_id, l.amount_currency, l.ref, l.name, m.name, c.symbol, c.position, p.name ORDER BY l.date''' )
+=======
+                    + WHERE + new_final_filter + ''' GROUP BY l.id, m.id,  l.account_id, l.date, j.code, l.currency_id, l.amount_currency, l.ref, l.name, m.name, c.symbol, c.position, p.name''' )
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                     + WHERE + new_final_filter + ''' GROUP BY l.id, m.id,  l.account_id, l.date, j.code, l.currency_id, l.amount_currency, l.ref, l.name, m.name, c.symbol, c.position, p.name''' )
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -389,7 +431,10 @@ class PartnerView(models.TransientModel):
 
         account_list = {x.id: {'name': x.name, 'code': x.code} for x in accounts}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         for row in cr.dictfetchall():
@@ -405,7 +450,13 @@ class PartnerView(models.TransientModel):
         partner_res = []
         for partner in partners:
 <<<<<<< HEAD
+<<<<<<< HEAD
             company_id = self.env.company
+=======
+            # company_id = self.env.company
+            company = self.get_current_company_value()
+            company_id = self.env['res.company'].search([('id', 'in', company)])
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
             # company_id = self.env.company
             company = self.get_current_company_value()
@@ -432,6 +483,11 @@ class PartnerView(models.TransientModel):
     @api.model
     def _get_currency(self):
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        company = self.get_current_company_value()
+        company_id = self.env['res.company'].search([('id', 'in', company)])
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
         company = self.get_current_company_value()
         company_id = self.env['res.company'].search([('id', 'in', company)])
@@ -445,13 +501,19 @@ class PartnerView(models.TransientModel):
             lang = 'en_US'
         lang = lang.replace("_", '-')
 <<<<<<< HEAD
+<<<<<<< HEAD
         currency_array = [self.env.company.currency_id.symbol,
                           self.env.company.currency_id.position, lang]
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         # currency_array = [self.env.company.currency_id.symbol,
         #                   self.env.company.currency_id.position, lang]
         currency_array = [company_id[0].currency_id.symbol,
                           company_id[0].currency_id.position, lang]
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         return currency_array
 

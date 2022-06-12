@@ -7,7 +7,10 @@ odoo.define('dynamic_accounts_report.trial_balance', function (require) {
     var session = require('web.session');
     var utils = require('web.utils');
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
     var QWeb = core.qweb;
@@ -15,10 +18,13 @@ odoo.define('dynamic_accounts_report.trial_balance', function (require) {
     var framework = require('web.framework');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     var datepicker = require('web.datepicker');
     var time = require('web.time');
 
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 //    import framework from 'web.framework';
@@ -39,7 +45,10 @@ odoo.define('dynamic_accounts_report.trial_balance', function (require) {
             'click #xlsx': 'print_xlsx',
             'click .show-gl': 'show_gl',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'mousedown div.input-group.date[data-target-input="nearest"]': '_onCalendarIconClick',
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         },
@@ -79,9 +88,12 @@ odoo.define('dynamic_accounts_report.trial_balance', function (require) {
                         args: [[this.wizard_id]],
                     }).then(function(datas) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                             _.each(datas['report_lines'], function(rep_lines) {
@@ -103,9 +115,12 @@ odoo.define('dynamic_accounts_report.trial_balance', function (require) {
                                         placeholder: 'Target Move...',
                                     });
 <<<<<<< HEAD
+<<<<<<< HEAD
 //                                    self.$el.find('#start_dateee').select2({
 //                                        placeholder: 'Date.',
 //                                    });
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                             }
@@ -120,7 +135,10 @@ odoo.define('dynamic_accounts_report.trial_balance', function (require) {
                                             debit_total : self.format_currency(datas['currency'],datas['debit_total']),
                                         }));
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                 });
@@ -182,6 +200,7 @@ odoo.define('dynamic_accounts_report.trial_balance', function (require) {
         },
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         _onCalendarIconClick: function (ev) {
         var $calendarInputGroup = $(ev.currentTarget);
 
@@ -212,6 +231,8 @@ odoo.define('dynamic_accounts_report.trial_balance', function (require) {
     },
 
 
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 
@@ -287,9 +308,12 @@ odoo.define('dynamic_accounts_report.trial_balance', function (require) {
             self.initial_render = false;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             var filter_data_selected = {};
@@ -317,6 +341,7 @@ odoo.define('dynamic_accounts_report.trial_balance', function (require) {
             filter_data_selected.journal_ids = journal_ids
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             if (this.$el.find('.datetimepicker-input[name="date_from"]').val()) {
                 filter_data_selected.date_from = moment(this.$el.find('.datetimepicker-input[name="date_from"]').val(), time.getLangDateFormat()).locale('en').format('YYYY-MM-DD');
             }
@@ -335,6 +360,8 @@ odoo.define('dynamic_accounts_report.trial_balance', function (require) {
 //                filter_data_selected.date_to = dateString;
 //            }
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             if ($("#date_from").val()) {
                 var dateString = $("#date_from").val();
                 filter_data_selected.date_from = dateString;
@@ -343,6 +370,9 @@ odoo.define('dynamic_accounts_report.trial_balance', function (require) {
                 var dateString = $("#date_to").val();
                 filter_data_selected.date_to = dateString;
             }
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 
             if ($(".target_move").length) {

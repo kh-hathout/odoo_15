@@ -5,6 +5,10 @@ import io
 import json
 from odoo.exceptions import AccessError, UserError, AccessDenied
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+from odoo.http import request
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 from odoo.http import request
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -43,6 +47,7 @@ class GeneralView(models.TransientModel):
                                    string='Target Moves', required=True)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     date_from = fields.Date(string='Start Date')
     date_to = fields.Date(string='End Date')
 
@@ -71,6 +76,8 @@ class GeneralView(models.TransientModel):
             journals = self.env['account.journal'].search([('type', '=', 'cash'), ('company_id', 'in', company_id)])
             new_title = title
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
     @api.model
     def view_report(self, option, title):
         r = self.env['account.general.ledger'].search([('id', '=', option[0])])
@@ -90,6 +97,9 @@ class GeneralView(models.TransientModel):
             journals = self.env['account.journal'].search([('type', '=', 'cash'), ('company_id', '=', company_id.id)],
                                                           limit=1)
             new_title = 'Cash Book'
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         r.write({
             'titles': new_title,
@@ -130,7 +140,10 @@ class GeneralView(models.TransientModel):
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
     def get_current_company_value(self):
 
         cookies_cids = [int(r) for r in request.httprequest.cookies.get('cids').split(",")] \
@@ -145,6 +158,9 @@ class GeneralView(models.TransientModel):
             cookies_cids.append(0)
         return cookies_cids
 
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
     def get_filter(self, option):
         data = self.get_filter_data(option)
@@ -193,16 +209,22 @@ class GeneralView(models.TransientModel):
         r = self.env['account.general.ledger'].search([('id', '=', option[0])])
         default_filters = {}
 <<<<<<< HEAD
+<<<<<<< HEAD
         company_id = self.env.companies
         company_domain = [('company_id', 'in', company_id.ids)]
 
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         company = self.get_current_company_value()[0]
         company_id = self.env['res.company'].search([('id', '=', int(company))])
         # company_id = self.env.company
         company_domain = [('company_id', '=', company_id.id)]
         journals = r.journal_ids if r.journal_ids else self.env['account.journal'].search(company_domain)
         accounts = self.account_ids if self.account_ids else self.env['account.account'].search(company_domain)
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         account_tags = r.account_tag_ids if r.account_tag_ids else self.env[
             'account.account.tag'].search([])
@@ -210,6 +232,7 @@ class GeneralView(models.TransientModel):
             company_domain)
         analytic_tags = r.analytic_tag_ids if r.analytic_tag_ids else self.env[
             'account.analytic.tag'].search([])
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 
@@ -236,12 +259,15 @@ class GeneralView(models.TransientModel):
 
 =======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         filter_dict = {
             'journal_ids': r.journal_ids.ids,
             'analytic_ids': r.analytic_ids.ids,
             'analytic_tag_ids': r.analytic_tag_ids.ids,
             'account_ids': r.account_ids.ids,
             'account_tag_ids': r.account_tag_ids.ids,
+<<<<<<< HEAD
 <<<<<<< HEAD
             'company_id': company_id.ids,
             'date_from': r.date_from,
@@ -256,6 +282,8 @@ class GeneralView(models.TransientModel):
             'analytic_tag_list': [(anltag.id, anltag.name) for anltag in analytic_tags],
             'company_name': ', '.join(self.env.companies.mapped('name')),
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             'company_id': company_id.id,
             'date_from': r.date_from,
             'date_to': r.date_to,
@@ -266,6 +294,9 @@ class GeneralView(models.TransientModel):
             'analytic_list': [(anl.id, anl.name) for anl in analytics],
             'analytic_tag_list': [(anltag.id, anltag.name) for anltag in analytic_tags],
             'company_name': company_id and company_id.name,
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         }
         filter_dict.update(default_filters)
@@ -273,7 +304,10 @@ class GeneralView(models.TransientModel):
 
     def _get_report_values(self, data):
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         docs = data['model']
@@ -281,11 +315,17 @@ class GeneralView(models.TransientModel):
         init_balance = True
         journals = data['journals']
 <<<<<<< HEAD
+<<<<<<< HEAD
         if not journals:
             raise UserError(_("No journals Found! Please Add One"))
 
         company_id = self.env.companies
         company_domain = [('company_id', 'in', company_id.ids)]
+=======
+        company = self.get_current_company_value()[0]
+        company_id = self.env['res.company'].search([('id', '=', int(company))])
+        company_domain = [('company_id', '=', company_id.id)]
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
         company = self.get_current_company_value()[0]
         company_id = self.env['res.company'].search([('id', '=', int(company))])
@@ -343,6 +383,11 @@ class GeneralView(models.TransientModel):
 
     def _get_accounts(self, accounts, init_balance, display_account, data):
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        company = self.get_current_company_value()[0]
+        company_id = self.env['res.company'].search([('id', '=', int(company))])
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
         company = self.get_current_company_value()[0]
         company_id = self.env['res.company'].search([('id', '=', int(company))])
@@ -358,6 +403,11 @@ class GeneralView(models.TransientModel):
                 date_from=self.env.context.get('date_from'), date_to=False,
                 initial_bal=True)._query_get()
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+            init_where_params[0] = int(company_id.id)
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 
             init_where_params[0] = int(company_id.id)
@@ -415,6 +465,10 @@ class GeneralView(models.TransientModel):
 
         tables, where_clause, where_params = MoveLine._query_get()
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        where_params[0] = int(company_id.id)
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
         where_params[0] = int(company_id.id)
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -448,6 +502,7 @@ class GeneralView(models.TransientModel):
                 tuple(data.get('analytic_tags').ids) + tuple([0]))
 
         # Get move lines base on sql query and Calculate the total balance of move lines
+<<<<<<< HEAD
 <<<<<<< HEAD
         sql = ('''SELECT l.account_id AS account_id, a.code AS code,a.id AS id, a.name AS name, ROUND(COALESCE(SUM(l.debit),0),2) AS debit, ROUND(COALESCE(SUM(l.credit),0),2) AS credit, ROUND(COALESCE(SUM(l.balance),0),2) AS balance
 
@@ -636,6 +691,9 @@ class GeneralView(models.TransientModel):
 =======
         sql = ('''SELECT l.id AS lid,m.id AS move_id, l.account_id AS account_id, l.date AS ldate, j.code AS lcode, l.currency_id, l.amount_currency, l.ref AS lref, l.name AS lname, COALESCE(l.debit,0) AS debit, COALESCE(l.credit,0) AS credit, COALESCE(SUM(l.balance),0) AS balance,\
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
+        sql = ('''SELECT l.id AS lid,m.id AS move_id, l.account_id AS account_id, l.date AS ldate, j.code AS lcode, l.currency_id, l.amount_currency, l.ref AS lref, l.name AS lname, COALESCE(l.debit,0) AS debit, COALESCE(l.credit,0) AS credit, COALESCE(SUM(l.balance),0) AS balance,\
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                     m.name AS move_name, c.symbol AS currency_code, p.name AS partner_name\
                     FROM account_move_line l\
                     JOIN account_move m ON (l.move_id=m.id)\
@@ -647,6 +705,7 @@ class GeneralView(models.TransientModel):
                     JOIN account_journal j ON (l.journal_id=j.id)\
                     JOIN account_account a ON (l.account_id = a.id) '''
 <<<<<<< HEAD
+<<<<<<< HEAD
                     + WHERE + new_final_filter + ''' GROUP BY l.id, m.id,  l.account_id, l.date, j.code, l.currency_id, l.amount_currency, l.ref, l.name, m.name, c.symbol, c.position, p.name ORDER BY l.date''' )
 
 
@@ -656,6 +715,8 @@ class GeneralView(models.TransientModel):
         account_ress = cr.dictfetchall()
         i=0
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                     + WHERE + new_final_filter + ''' GROUP BY l.id, m.id,  l.account_id, l.date, j.code, l.currency_id, l.amount_currency, l.ref, l.name, m.name, c.symbol, c.position, p.name''' )
         if data.get('accounts'):
             params = tuple(where_params)
@@ -671,6 +732,9 @@ class GeneralView(models.TransientModel):
             row['m_id'] = row['account_id']
             move_lines[row.pop('account_id')].append(row)
 
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         # Calculate the debit, credit and balance for Accounts
         account_res = []
@@ -680,6 +744,7 @@ class GeneralView(models.TransientModel):
             res['code'] = account.code
             res['name'] = account.name
             res['id'] = account.id
+<<<<<<< HEAD
 <<<<<<< HEAD
             res['move_lines'] = account_ress
 
@@ -694,6 +759,8 @@ class GeneralView(models.TransientModel):
             'currency': currency,
         }
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             res['move_lines'] = move_lines[account.id]
             for line in res.get('move_lines'):
                 res['debit'] += round(line['debit'],2)
@@ -726,6 +793,9 @@ class GeneralView(models.TransientModel):
         currency_array = [company_id.currency_id.symbol,
                           company_id.currency_id.position, lang]
         return currency_array
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 
     def get_dynamic_xlsx_report(self, data, response ,report_data, dfr_data):

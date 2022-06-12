@@ -1407,7 +1407,11 @@ odoo.define('AccountingDashboard.AccountingDashboard', function(require) {
                         amount = self.format_currency(currency, balance[k]);
                         //                                $('#charts').append('<li><a ' + banks[k] + '" data-user-id="' + banks[k] + '">' + banks[k] + '</a>'+  '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + '<span>'+ balance[k] +'</span>' + '</li>' );
 <<<<<<< HEAD
+<<<<<<< HEAD
 //                        $('#current_bank_balance').empty()
+=======
+                        $('#current_bank_balance').empty()
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                         $('#current_bank_balance').empty()
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108

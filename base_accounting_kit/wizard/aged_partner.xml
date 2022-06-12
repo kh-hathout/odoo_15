@@ -14,7 +14,11 @@
                     <field name="target_move" widget="radio"/>
                 </group>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <!--                <field name="journal_ids" required="0" invisible="1"/>-->
+=======
+                <field name="journal_ids" required="0" invisible="1"/>
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                 <field name="journal_ids" required="0" invisible="1"/>
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108

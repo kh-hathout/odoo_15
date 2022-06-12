@@ -10,9 +10,12 @@ odoo.define('dynamic_accounts_report.financial_reports', function (require) {
     var _t = core._t;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     var datepicker = require('web.datepicker');
     var time = require('web.time');
 
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
     window.click_num = 0;
@@ -26,7 +29,10 @@ odoo.define('dynamic_accounts_report.financial_reports', function (require) {
             'click #xlsx': 'print_xlsx',
             'click .show-gl': 'show_gl',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'mousedown div.input-group.date[data-target-input="nearest"]': '_onCalendarIconClick',
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         },
@@ -51,6 +57,7 @@ odoo.define('dynamic_accounts_report.financial_reports', function (require) {
             })
         },
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         _onCalendarIconClick: function (ev) {
         var $calendarInputGroup = $(ev.currentTarget);
@@ -83,6 +90,8 @@ odoo.define('dynamic_accounts_report.financial_reports', function (require) {
 
 =======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
     load_data: function (initial_render = true) {
             var self = this;
             var action_title = self._title;
@@ -93,11 +102,17 @@ odoo.define('dynamic_accounts_report.financial_reports', function (require) {
                         model: 'dynamic.balance.sheet.report',
                         method: 'view_report',
 <<<<<<< HEAD
+<<<<<<< HEAD
                         args: [[this.wizard_id], action_title, self.searchModel.config.context.lang],
                     }).then(function(datas) {
 
 
 
+=======
+                        args: [[this.wizard_id], action_title],
+                    }).then(function(datas) {
+
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                         args: [[this.wizard_id], action_title],
                     }).then(function(datas) {
@@ -182,7 +197,11 @@ odoo.define('dynamic_accounts_report.financial_reports', function (require) {
                 method: 'view_report',
                 args: [
 <<<<<<< HEAD
+<<<<<<< HEAD
                     [self.wizard_id], action_title,  self.searchModel.config.context.lang
+=======
+                    [self.wizard_id], action_title
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                     [self.wizard_id], action_title
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -216,7 +235,11 @@ odoo.define('dynamic_accounts_report.financial_reports', function (require) {
                 method: 'view_report',
                 args: [
 <<<<<<< HEAD
+<<<<<<< HEAD
                     [self.wizard_id],  action_title,  self.searchModel.config.context.lang
+=======
+                    [self.wizard_id],  action_title
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                     [self.wizard_id],  action_title
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -380,6 +403,7 @@ odoo.define('dynamic_accounts_report.financial_reports', function (require) {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 //            if ($("#date_from").val()) {
 //                var dateString = $("#date_from").val();
 //                filter_data_selected.date_from = dateString;
@@ -395,6 +419,8 @@ odoo.define('dynamic_accounts_report.financial_reports', function (require) {
             if (this.$el.find('.datetimepicker-input[name="date_to"]').val()) {
                 filter_data_selected.date_to = moment(this.$el.find('.datetimepicker-input[name="date_to"]').val(), time.getLangDateFormat()).locale('en').format('YYYY-MM-DD');
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             if ($("#date_from").val()) {
                 var dateString = $("#date_from").val();
                 filter_data_selected.date_from = dateString;
@@ -402,6 +428,9 @@ odoo.define('dynamic_accounts_report.financial_reports', function (require) {
             if ($("#date_to").val()) {
                 var dateString = $("#date_to").val();
                 filter_data_selected.date_to = dateString;
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             }
 
@@ -416,7 +445,10 @@ odoo.define('dynamic_accounts_report.financial_reports', function (require) {
                   }
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             rpc.query({

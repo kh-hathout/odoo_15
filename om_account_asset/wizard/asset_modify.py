@@ -3,7 +3,10 @@
 
 from odoo import api, fields, models, _
 <<<<<<< HEAD
+<<<<<<< HEAD
 from odoo.exceptions import UserError
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 
@@ -58,9 +61,12 @@ class AssetModify(models.TransientModel):
             'method_end': self.method_end,
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         if asset_vals['method_number'] <= asset.entry_count:
             raise UserError(_('The number of depreciations must be greater than the number of posted or draft entries '
                               'to allow for complete depreciation of the asset.'))
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         asset.write(asset_vals)

@@ -5,6 +5,10 @@ from odoo import fields, models, api, _
 import io
 import json
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+from odoo.http import request
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 from odoo.http import request
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -62,7 +66,10 @@ class AgeingView(models.TransientModel):
             'currency': currency,
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
     def get_current_company_value(self):
 
         cookies_cids = [int(r) for r in request.httprequest.cookies.get('cids').split(",")] \
@@ -76,6 +83,9 @@ class AgeingView(models.TransientModel):
         if len(cookies_cids) == 1:
             cookies_cids.append(0)
         return cookies_cids
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 
     def get_filter(self, option):
@@ -110,6 +120,7 @@ class AgeingView(models.TransientModel):
         r = self.env['account.day.book'].search([('id', '=', option[0])])
         default_filters = {}
 <<<<<<< HEAD
+<<<<<<< HEAD
         company_id = self.env.companies
         company_domain = [('company_id', 'in', company_id.ids)]
         # journals = self.journal_ids if self.journal_ids else self.env[
@@ -137,6 +148,8 @@ class AgeingView(models.TransientModel):
             accounts.append((j.id, j.name))
 
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         # company_id = self.env.company
         company = self.get_current_company_value()[0]
         company_id = self.env['res.company'].search([('id', '=', int(company))])
@@ -145,13 +158,20 @@ class AgeingView(models.TransientModel):
             'account.journal'].search(company_domain)
         accounts = self.account_ids if self.account_ids else self.env[
             'account.account'].search(company_domain)
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 
         filter_dict = {
             'journal_ids': self.journal_ids.ids,
             'account_ids': self.account_ids.ids,
 <<<<<<< HEAD
+<<<<<<< HEAD
             'company_id': company_id.ids,
+=======
+            'company_id': company_id.id,
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
             'company_id': company_id.id,
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -160,15 +180,21 @@ class AgeingView(models.TransientModel):
 
             'target_move': r.target_move,
 <<<<<<< HEAD
+<<<<<<< HEAD
             'journals_list': journals,
             'accounts_list': accounts,
 
             'company_name': ', '.join(self.env.companies.mapped('name')),
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             'journals_list': [(j.id, j.name, j.code) for j in journals],
             'accounts_list': [(a.id, a.name) for a in accounts],
 
             'company_name': company_id and company_id.name,
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         }
         filter_dict.update(default_filters)
@@ -177,11 +203,14 @@ class AgeingView(models.TransientModel):
     def _get_report_values(self, data=None):
         form_data = data['form']
 <<<<<<< HEAD
+<<<<<<< HEAD
         active_acc = data['form']['account_ids']
         accounts = self.env['account.account'].search(
             [('id', 'in', active_acc)]) if data['form']['account_ids'] else \
             self.env['account.account'].search([])
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         company = self.get_current_company_value()[0]
         company_id = self.env['res.company'].search([('id', '=', int(company))])
         company_domain = [('company_id', '=', company_id.id)]
@@ -189,6 +218,9 @@ class AgeingView(models.TransientModel):
         accounts = self.env['account.account'].search(
             [('id', 'in', active_acc)]) if data['form']['account_ids'] else \
             self.env['account.account'].search(company_domain)
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         if not accounts:
             raise UserError(_("No Accounts Found! Please Add One"))
@@ -196,7 +228,11 @@ class AgeingView(models.TransientModel):
         journals = self.env['account.journal'].search(
             [('id', 'in', active_jrnl)]) if data['form']['journal_ids'] else \
 <<<<<<< HEAD
+<<<<<<< HEAD
             self.env['account.journal'].search([])
+=======
+            self.env['account.journal'].search(company_domain)
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
             self.env['account.journal'].search(company_domain)
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -254,6 +290,7 @@ class AgeingView(models.TransientModel):
 
     def _get_account_move_entry(self, accounts, form_data,journals, pass_date):
 <<<<<<< HEAD
+<<<<<<< HEAD
         cr = self.env.cr
         move_line = self.env['account.move.line']
         tables, where_clause, where_params = move_line._query_get()
@@ -268,6 +305,8 @@ class AgeingView(models.TransientModel):
         else:
             target_move += """AND m.state in ('draft','posted') """
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         company = self.get_current_company_value()[0]
         company_id = self.env['res.company'].search([('id', '=', int(company))])
         cr = self.env.cr
@@ -281,6 +320,9 @@ class AgeingView(models.TransientModel):
             target_move = "AND m.state = 'posted'"
         else:
             target_move = ''
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         sql = ('''
                 SELECT l.id AS lid,m.id AS move_id, acc.name as accname, l.account_id AS account_id, l.date AS ldate, j.code AS lcode, l.currency_id, 
@@ -321,6 +363,12 @@ class AgeingView(models.TransientModel):
     @api.model
     def _get_currency(self):
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        company = self.get_current_company_value()[0]
+        company_id = self.env['res.company'].search([('id', '=', int(company))])
+
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
         company = self.get_current_company_value()[0]
         company_id = self.env['res.company'].search([('id', '=', int(company))])
@@ -335,13 +383,19 @@ class AgeingView(models.TransientModel):
             lang = 'en_US'
         lang = lang.replace("_", '-')
 <<<<<<< HEAD
+<<<<<<< HEAD
         currency_array = [self.env.company.currency_id.symbol,
                           self.env.company.currency_id.position, lang]
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         # currency_array = [self.env.company.currency_id.symbol,
         #                   self.env.company.currency_id.position, lang]
         currency_array = [company_id.currency_id.symbol,
                           company_id.currency_id.position, lang]
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         return currency_array
 

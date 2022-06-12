@@ -24,7 +24,11 @@
 {
     'name': 'odoo 15 Customize OEM(Boost, Data reset)',
 <<<<<<< HEAD
+<<<<<<< HEAD
     'version': '15.22.03.15',
+=======
+    'version': '15.21.10.08',
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
     'version': '15.21.10.08',
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108

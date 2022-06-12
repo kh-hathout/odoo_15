@@ -2,6 +2,7 @@
 <templates xml:space="preserve">
     <!--owl 处理继承继承-->
 <<<<<<< HEAD
+<<<<<<< HEAD
     <t t-inherit="web.UserMenu" t-inherit-mode="extension" owl="1">
         <xpath expr="//td[hasclass('client-line-email')]" position="after">
             <t t-jquery="a[data-menu='documentation']" t-operation="before">
@@ -14,6 +15,8 @@
             </t>
         </xpath>
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
     <t t-name="UserMenu" t-inherit="web.UserMenu" t-inherit-mode="extension" owl="1">
         <xpath expr="//td[hasclass('client-line-email')]" position="after">
         <t t-jquery="a[data-menu='documentation']" t-operation="before">
@@ -24,6 +27,9 @@
             <div role="separator" class="dropdown-divider"/>
             <a role="menuitem" href="#" data-menu="documentation_dev" class="dropdown-item">Developer Manual</a>
         </t>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
     </t>
 </templates>

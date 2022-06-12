@@ -16,6 +16,10 @@ class TrialView(models.TransientModel):
     _inherit = "account.common.report"
     _name = 'account.trial.balance'
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    _check_company_auto = True
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
     _check_company_auto = True
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -25,6 +29,11 @@ class TrialView(models.TransientModel):
                                    string='Journals', required=True,
                                    default=[])
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    company_id = fields.Many2one('res.company', string='Company', required=True, default=lambda self: self.env['res.company']._company_default_get(
+                                     'account.trial.balance'))
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
     company_id = fields.Many2one('res.company', string='Company', required=True, default=lambda self: self.env['res.company']._company_default_get(
                                      'account.trial.balance'))
@@ -91,7 +100,10 @@ class TrialView(models.TransientModel):
         return filters
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
     def get_filter_data(self, option):
         r = self.env['account.trial.balance'].search([('id', '=', option[0])])
         default_filters = {}
@@ -113,6 +125,9 @@ class TrialView(models.TransientModel):
         filter_dict.update(default_filters)
         return filter_dict
 
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
     def get_current_company_value(self):
 
@@ -128,6 +143,7 @@ class TrialView(models.TransientModel):
             cookies_cids.append(0)
         return cookies_cids
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     def get_filter_data(self, option):
         r = self.env['account.trial.balance'].search([('id', '=', option[0])])
@@ -165,6 +181,8 @@ class TrialView(models.TransientModel):
         journals = data['journals']
         accounts = self.env['account.account'].search([])
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
     def _get_report_values(self, data):
         docs = data['model']
         company = self.get_current_company_value()[0]
@@ -174,6 +192,9 @@ class TrialView(models.TransientModel):
         journals = data['journals']
         # accounts = self.env['account.account'].search([])
         accounts = self.env['account.account'].search(company_domain)
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         if not accounts:
             raise UserError(_("No Accounts Found! Please Add One"))
@@ -208,17 +229,23 @@ class TrialView(models.TransientModel):
 
     def _get_accounts(self, accounts, display_account, data):
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         account_result = {}
         # Prepare sql query base on selected parameters from wizard
         tables, where_clause, where_params = self.env['account.move.line']._query_get()
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         company = self.get_current_company_value()[0]
         company_id = self.env['res.company'].search([('id', '=', int(company))])
         account_result = {}
         # Prepare sql query base on selected parameters from wizard
         tables, where_clause, where_params = self.env['account.move.line']._query_get()
         where_params[0] = int(company_id.id)
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         tables = tables.replace('"', '')
         if not tables:
@@ -229,9 +256,15 @@ class TrialView(models.TransientModel):
         filters = " AND ".join(wheres)
         if data['target_move'] == 'posted':
 <<<<<<< HEAD
+<<<<<<< HEAD
             filters += " AND account_move_line.parent_state = 'posted'"
         else:
             filters += " AND account_move_line.parent_state in ('draft','posted')"
+=======
+            filters += " AND account_move_line__move_id.state = 'posted'"
+        else:
+            filters += " AND account_move_line__move_id.state in ('draft','posted')"
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
             filters += " AND account_move_line__move_id.state = 'posted'"
         else:
@@ -245,7 +278,11 @@ class TrialView(models.TransientModel):
         if data['journals']:
             filters += ' AND jrnl.id IN %s' % str(tuple(data['journals'].ids) + tuple([0]))
 <<<<<<< HEAD
+<<<<<<< HEAD
         tables += ' JOIN account_journal jrnl ON (account_move_line.journal_id=jrnl.id)'
+=======
+        tables += 'JOIN account_journal jrnl ON (account_move_line.journal_id=jrnl.id)'
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
         tables += 'JOIN account_journal jrnl ON (account_move_line.journal_id=jrnl.id)'
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -298,9 +335,15 @@ class TrialView(models.TransientModel):
             filters = " AND ".join(wheres)
             if data['target_move'] == 'posted':
 <<<<<<< HEAD
+<<<<<<< HEAD
                 filters += " AND account_move_line.parent_state = 'posted'"
             else:
                 filters += " AND account_move_line.parent_state in ('draft','posted')"
+=======
+                filters += " AND account_move_line__move_id.state = 'posted'"
+            else:
+                filters += " AND account_move_line__move_id.state in ('draft','posted')"
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                 filters += " AND account_move_line__move_id.state = 'posted'"
             else:
@@ -312,7 +355,11 @@ class TrialView(models.TransientModel):
             if data['journals']:
                 filters += ' AND jrnl.id IN %s' % str(tuple(data['journals'].ids) + tuple([0]))
 <<<<<<< HEAD
+<<<<<<< HEAD
             tables += ' JOIN account_journal jrnl ON (account_move_line.journal_id=jrnl.id)'
+=======
+            tables += 'JOIN account_journal jrnl ON (account_move_line.journal_id=jrnl.id)'
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
             tables += 'JOIN account_journal jrnl ON (account_move_line.journal_id=jrnl.id)'
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -329,6 +376,11 @@ class TrialView(models.TransientModel):
     @api.model
     def _get_currency(self):
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        company = self.get_current_company_value()[0]
+        company_id = self.env['res.company'].search([('id', '=', int(company))])
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
         company = self.get_current_company_value()[0]
         company_id = self.env['res.company'].search([('id', '=', int(company))])
@@ -342,14 +394,20 @@ class TrialView(models.TransientModel):
             lang = 'en_US'
         lang = lang.replace("_", '-')
 <<<<<<< HEAD
+<<<<<<< HEAD
         currency_array = [self.env.company.currency_id.symbol,
                           self.env.company.currency_id.position,
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         # currency_array = [self.env.company.currency_id.symbol,
         #                   self.env.company.currency_id.position,
         #                   lang]
         currency_array = [company_id.currency_id.symbol,
                           company_id.currency_id.position,
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                           lang]
         return currency_array

@@ -24,7 +24,10 @@ from . import controllers
 from . import wizard
 from . import report
 <<<<<<< HEAD
+<<<<<<< HEAD
 from . import models
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 

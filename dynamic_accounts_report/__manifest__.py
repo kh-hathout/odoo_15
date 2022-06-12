@@ -23,7 +23,11 @@
 {
     'name': 'Dynamic Financial Reports',
 <<<<<<< HEAD
+<<<<<<< HEAD
     'version': '15.0.1.0.4',
+=======
+    'version': '15.0.1.0.0',
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
     'version': '15.0.1.0.0',
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108

@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+<?xml version='1.0' encoding='utf-8'?>
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 <?xml version='1.0' encoding='utf-8'?>
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -38,7 +42,11 @@
 
 									<t t-set="common_id" t-value="0"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 									<t t-if="account['id'] == a['account']">
+=======
+									<t t-if="account['code'] == a['code']">
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 									<t t-if="account['code'] == a['code']">
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -54,7 +62,11 @@
 												</span>
 												<div class="" style="display: inline-block;">
 <<<<<<< HEAD
+<<<<<<< HEAD
 												<a type="button" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+=======
+												<a type="button" class="fa fa-caret-down" data-toggle="dropdown" aria-expanded="false">
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 												<a type="button" class="fa fa-caret-down" data-toggle="dropdown" aria-expanded="false">
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -130,6 +142,7 @@
 
 		</div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 		<div class="row" style="margin-right: 10px; margin-left: 10px;">
             <div class="sub_container_left" style="width:70%;">
                 <div class="report_print">
@@ -178,6 +191,8 @@
                             </div>
                         </div>
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 		<div class="" style="position: relative;">
 
 			<div class="sub_container_left">
@@ -221,6 +236,9 @@ Date Range
 							</div>
 						</div>
 					</div>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 					<div class="journals_filter" style="">
 						<a type="button" class="dropdown-toggle" data-toggle="dropdown">
@@ -230,6 +248,7 @@ Journals:
 						<select class="dropdown-menu  journals" name="states[]" multiple="multiple">
 							<div role="separator" class="dropdown-divider"></div>
 							<t t-foreach="filter_data.journals_list" t-as="journal">
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 								 <t t-if="journal[0]=='divider'">
@@ -250,6 +269,10 @@ Journals:
 								<option t-attf-value="{{journal[0]}}"><t t-esc="journal[1]"/>
 								</option>
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
+								<option t-attf-value="{{journal[0]}}"><t t-esc="journal[1]"/>
+								</option>
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 							</t>
 						</select>
 						<span id="journal_res"></span>
@@ -262,6 +285,7 @@ Journals:
                             </a>
                             <select class="dropdown-menu account" name="states[]" multiple="multiple">
                                 <t t-foreach="filter_data.accounts_list" t-as="account">
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 									<t t-if="account[0]=='divider'">
@@ -279,6 +303,11 @@ Journals:
                                         <t t-esc="account[1]"/>
                                     </option>
 									</t>
+=======
+                                    <option t-attf-value="{{account[0]}}">
+                                        <t t-esc="account[1]"/>
+                                    </option>
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                                     <option t-attf-value="{{account[0]}}">
                                         <t t-esc="account[1]"/>
@@ -349,27 +378,37 @@ Target Move:
 						<span id="post_res"></span>
 					</div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 				<div style="">
                     <button type="button" id="apply_filter" class="btn btn-primary"
                             style="top:0px;height:30px;color:white;background-color: #00A0AD;border-color: #00A0AD;">
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 					</div>
 
 				</div>
 				<div style="">
                     <button type="button" id="apply_filter" class="btn btn-primary"
                             style="top:0px;height:30px;right:20px;position: absolute;color:white;background-color: #00A0AD;border-color: #00A0AD;">
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                         Apply
                     </button>
 
                 </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 					</div>
 
 <!--				</div>-->
 <!--				-->
 <!--			</div>-->
+=======
+			</div>
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 			</div>
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108

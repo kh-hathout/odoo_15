@@ -48,6 +48,7 @@
                                     <td style="text-align:right;">
                                         <t t-esc="currency[0]"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
                                         <t t-raw="account['debit']"/>
                                     </td>
                                     <td style="text-align:right;">
@@ -58,6 +59,8 @@
                                         <t t-esc="currency[0]"/>
                                         <t t-raw="account['balance']"/>
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                         <t t-out="account['debit']"/>
                                     </td>
                                     <td style="text-align:right;">
@@ -67,12 +70,16 @@
                                     <td style="text-align:right;">
                                         <t t-esc="currency[0]"/>
                                         <t t-out="account['balance']"/>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                     </td>
 
                                 </t>
                                 <t t-else="">
                                     <td style="text-align:right;">
+<<<<<<< HEAD
 <<<<<<< HEAD
                                         <t t-raw="account['debit']"/>
                                         <t t-esc="currency[0]"/>
@@ -84,6 +91,8 @@
                                     <td style="text-align:right;">
                                         <t t-raw="account['balance']"/>
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                         <t t-out="account['debit']"/>
                                         <t t-esc="currency[0]"/>
                                     </td>
@@ -93,6 +102,9 @@
                                     </td>
                                     <td style="text-align:right;">
                                         <t t-out="account['balance']"/>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                         <t t-esc="currency[0]"/>
                                     </td>
@@ -116,6 +128,7 @@
 
     <t t-name="PLFilterView">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <div class="row" style="margin-right: 10px; margin-left: 10px;">
             <div class="sub_container_left" style="width:70%;">
                 <div class="report_print">
@@ -126,6 +139,8 @@
                     <button type="button" class="btn btn-primary" id="xlsx"
                             style="position: relative;height:30px;color:white;background-color: #00A0AD;border-color: #00A0AD; padding:3px;">
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         <div class="" style="position: relative;">
             <div class="sub_container_left">
                 <div class="report_print">
@@ -135,6 +150,9 @@
                     </button>
                     <button type="button" class="btn btn-primary" id="xlsx"
                             style="left:10px; height:30px;position: relative;color:white;background-color: #00A0AD;border-color: #00A0AD; padding:3px;">
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                         Export (XLSX)
                     </button>
@@ -142,11 +160,14 @@
             </div>
             <br></br>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <div class="sub_container_right row" style="width:30%;height:3%;top:0px;position: relative;">
 
                         <div class="time_range" style="">
                             <a type="button" class="dropdown-toggle" data-toggle="dropdown" >
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             <div class="sub_container_right" style="width:50%;height:3%;right:0px;top:0px;position: absolute;">
                 <div class="" style="right:80x;">
 
@@ -154,11 +175,15 @@
                     <div class="row" style="right:80px;top:0px;position: absolute;width:50;">
                         <div class="time_range" style="">
                             <a type="button" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                 <span class="fa fa-calendar" title="Dates" role="img" aria-label="Dates"></span>
                                 Date Range
                             </a>
                             <div class="dropdown-menu" role="menu">
+<<<<<<< HEAD
 <<<<<<< HEAD
                                 <div class="form-group">
                                     <label class="" for="date_from">Start Date :</label>
@@ -183,6 +208,8 @@
                                     </div>
 
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                 <div class="">
                                     <label class="" for="date_from">Start Date :</label>
                                     <div class="">
@@ -196,6 +223,9 @@
                                             <input type="date" id="date_to"></input>
                                         </div>
                                     </div>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                 </div>
                             </div>
@@ -256,6 +286,7 @@
                                 <div role="separator" class="dropdown-divider"></div>
                                 <t t-foreach="filter_data.journals_list" t-as="journal">
 <<<<<<< HEAD
+<<<<<<< HEAD
 
                                     <t t-if="journal[0]=='divider'">
                                             <div role="separator" class="dropdown-divider"/>
@@ -277,6 +308,11 @@
                                         <t t-esc="journal[1]"/>
                                     </option>
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
+                                    <option t-attf-value="{{journal[0]}}">
+                                        <t t-esc="journal[1]"/>
+                                    </option>
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                 </t>
                             </select>
                             <span id="journal_res"></span>
@@ -288,6 +324,7 @@
                             </a>
                             <select class="dropdown-menu account" name="states[]" multiple="multiple">
                                 <t t-foreach="filter_data.accounts_list" t-as="account">
+<<<<<<< HEAD
 <<<<<<< HEAD
                                     <t t-if="account[0]=='divider'">
                                             <div role="separator" class="dropdown-divider"/>
@@ -304,6 +341,11 @@
                                         <t t-esc="account[1]"/>
                                     </option>
                                     </t>
+=======
+                                    <option t-attf-value="{{account[0]}}">
+                                        <t t-esc="account[1]"/>
+                                    </option>
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                                     <option t-attf-value="{{account[0]}}">
                                         <t t-esc="account[1]"/>
@@ -330,6 +372,7 @@
                             <span id="post_res"></span>
                         </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <div style="">
                             <button type="button" id="apply_filter" class="btn btn-primary"
                                     style="top:0px;height:30px;color:white;background-color: #00A0AD;border-color: #00A0AD;">
@@ -342,6 +385,8 @@
 <!--                </div>-->
 
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                     </div>
 
                 </div>
@@ -352,6 +397,9 @@
                     </button>
 
                 </div>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             </div>
         </div>
@@ -418,6 +466,7 @@
                             <t t-if="account_line.currency_position == 'before'">
                                 <td t-att-style="style" class="amt">
 <<<<<<< HEAD
+<<<<<<< HEAD
                                     <t t-raw="account_line.currency_code"/>
                                     <t t-raw="account_line.debit"/>
 
@@ -431,6 +480,8 @@
                                     <t t-raw="account_line.currency_code"/>
                                     <t t-raw="account_line.balance"/>
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                     <t t-out="account_line.currency_code"/>
                                     <t t-out="account_line.debit"/>
 
@@ -443,6 +494,9 @@
                                 <td t-att-style="style" class="amt">
                                     <t t-out="account_line.currency_code"/>
                                     <t t-out="account_line.balance"/>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 
                                 </td>
@@ -450,6 +504,7 @@
                             </t>
                             <t t-else="">
                                 <td t-att-style="style" class="amt">
+<<<<<<< HEAD
 <<<<<<< HEAD
                                     <t t-raw="account_line.debit"/>
                                     <t t-raw="account_line.currency_code"/>
@@ -462,6 +517,8 @@
                                     <t t-raw="account_line.balance"/>
                                     <t t-raw="account_line.currency_code"/>
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                     <t t-out="account_line.debit"/>
                                     <t t-out="account_line.currency_code"/>
                                 </td>
@@ -472,6 +529,9 @@
                                 <td t-att-style="style" class="amt">
                                     <t t-out="account_line.balance"/>
                                     <t t-out="account_line.currency_code"/>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                 </td>
 

@@ -21,7 +21,10 @@ odoo.define("prt_report_attachment_preview.action_service", function (require) {
     "use strict";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     const {makeContext} = require("@web/core/context");
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
     const {KeepLast} = require("@web/core/utils/concurrency");
@@ -36,9 +39,12 @@ odoo.define("prt_report_attachment_preview.action_service", function (require) {
     const _t = core._t;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     // regex that matches context keys not to forward from an action to another
     const CTX_KEY_REGEX = /^(?:(?:default_|search_default_|show_).+|.+_view_ref|group_by|group_by_no_leaf|active_id|active_ids|orderedBy)$/;
 
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
     function _getReportUrl(action, type) {
@@ -203,6 +209,7 @@ odoo.define("prt_report_attachment_preview.action_service", function (require) {
                 }
             };
 <<<<<<< HEAD
+<<<<<<< HEAD
 
             const _super_do_action_button = env.services.action.doActionButton;
             env.services.action.doActionButton = async function (params) {
@@ -275,6 +282,8 @@ odoo.define("prt_report_attachment_preview.action_service", function (require) {
                     _super_do_action_button(params);
                 }
             };
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         },

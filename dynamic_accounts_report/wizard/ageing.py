@@ -5,7 +5,11 @@ from dateutil.relativedelta import relativedelta
 from odoo import fields, models, api, _
 from odoo.tools import float_is_zero
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+from odoo.http import request
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 from odoo.http import request
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -114,7 +118,13 @@ class AgeingView(models.TransientModel):
         r = self.env['account.partner.ageing'].search([('id', '=', option[0])])
         default_filters = {}
 <<<<<<< HEAD
+<<<<<<< HEAD
         company_id = self.env.companies
+=======
+        company = self.get_current_company_value()
+        company_id = self.env['res.company'].search([('id', 'in', company)])
+        # company_id = self.env.company
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
         company = self.get_current_company_value()
         company_id = self.env['res.company'].search([('id', 'in', company)])
@@ -130,7 +140,11 @@ class AgeingView(models.TransientModel):
             'partners': r.partner_ids.ids,
             'partner_tags': r.partner_category_ids.ids,
 <<<<<<< HEAD
+<<<<<<< HEAD
             'company_id': company_id.ids,
+=======
+            'company_id': company_id[0].id,
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
             'company_id': company_id[0].id,
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -141,7 +155,11 @@ class AgeingView(models.TransientModel):
             'partners_list': [(p.id, p.name) for p in partner],
             'category_list': [(c.id, c.name) for c in categories],
 <<<<<<< HEAD
+<<<<<<< HEAD
             'company_name': ', '.join(self.env.companies.mapped('name')),
+=======
+            'company_name': company_id and company_id[0].name,
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
             'company_name': company_id and company_id[0].name,
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -178,7 +196,10 @@ class AgeingView(models.TransientModel):
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
     def get_current_company_value(self):
         cookies_cids = [int(r) for r in request.httprequest.cookies.get('cids').split(",")] \
             if request.httprequest.cookies.get('cids') \
@@ -192,6 +213,9 @@ class AgeingView(models.TransientModel):
             cookies_cids.append(0)
         return cookies_cids
 
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
     @api.model
     def create(self, vals):
@@ -241,7 +265,13 @@ class AgeingView(models.TransientModel):
         total = []
         cr = self.env.cr
 <<<<<<< HEAD
+<<<<<<< HEAD
         user_company = self.env.company
+=======
+        company = self.get_current_company_value()[0]
+        user_company = self.env['res.company'].search([('id', '=', int(company))])
+        # user_company = self.env.company
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
         company = self.get_current_company_value()[0]
         user_company = self.env['res.company'].search([('id', '=', int(company))])
@@ -252,8 +282,12 @@ class AgeingView(models.TransientModel):
         ResCurrency = self.env['res.currency'].with_context(date=date_from)
         # company_ids = self._context.get('company_ids') or [user_company.id]
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         company_ids = self.env.companies.ids
+=======
+        company_ids = self._context.get('company_ids') or [user_company.id]
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
         company_ids = self._context.get('company_ids') or [user_company.id]
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -273,6 +307,10 @@ class AgeingView(models.TransientModel):
             reconciliation_clause = '(l.reconciled IS FALSE OR l.id IN %s)'
             arg_list += (tuple(reconciled_after_date),)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -447,6 +485,7 @@ class AgeingView(models.TransientModel):
                     if i + 1 == 5:
                         period5 = i + 1
 <<<<<<< HEAD
+<<<<<<< HEAD
                         if partner_id:
                             lines[partner_id].append({
                                 'period5': period5,
@@ -535,6 +574,8 @@ class AgeingView(models.TransientModel):
                                 'amount': line_amount,
                             })
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                         lines[partner_id].append({
                             'period5': period5,
                             'line': line,
@@ -617,6 +658,9 @@ class AgeingView(models.TransientModel):
                             'date': date_maturity,
                             'amount': line_amount,
                         })
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 
             history.append(partners_amount)
@@ -677,6 +721,11 @@ class AgeingView(models.TransientModel):
     @api.model
     def _get_currency(self):
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        company = self.get_current_company_value()[0]
+        company_id = self.env['res.company'].search([('id', '=', int(company))])
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
         company = self.get_current_company_value()[0]
         company_id = self.env['res.company'].search([('id', '=', int(company))])
@@ -690,14 +739,20 @@ class AgeingView(models.TransientModel):
             lang = 'en_US'
         lang = lang.replace("_", '-')
 <<<<<<< HEAD
+<<<<<<< HEAD
         currency_array = [self.env.company.currency_id.symbol,
                           self.env.company.currency_id.position, lang]
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         # currency_array = [self.env.company.currency_id.symbol,
         #                   self.env.company.currency_id.position, lang]
         currency_array = [company_id.currency_id.symbol,
                           company_id.currency_id.position, lang]
 
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         return currency_array
 

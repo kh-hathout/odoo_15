@@ -220,6 +220,7 @@
 
     <t t-name="AgeingFilterView">
 <<<<<<< HEAD
+<<<<<<< HEAD
        <div class="row" style="margin-right: 10px; margin-left: 10px;">
             <div class="sub_container_left" style="width:70%;">
                 <div class="report_print">
@@ -230,6 +231,8 @@
                     <button type="button" class="btn btn-primary" id="xlsx"
                             style="position: relative;height:30px;color:white;background-color: #00A0AD;border-color: #00A0AD; padding:3px;">
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         <div class="" style="position: relative;">
             <div class="sub_container_left">
                 <div class="report_print">
@@ -239,12 +242,16 @@
                     </button>
                     <button type="button" class="btn btn-primary" id="xlsx"
                             style="left:10px; height:30px;position: relative;color:white;background-color: #00A0AD;border-color: #00A0AD; padding:3px;">
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                         Export (XLSX)
                     </button>
                 </div>
             </div>
             <br></br>
+<<<<<<< HEAD
 <<<<<<< HEAD
             <div class="sub_container_right row" style="width:30%;height:3%;top:0px;position: relative;">
 
@@ -268,6 +275,8 @@
 
 
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             <div class="sub_container_right" style="width:50%;height:3%;right:0px;top:0px;position: absolute;">
                 <div class="" style="right:80x;">
 
@@ -286,6 +295,9 @@
                                             <input type="date" id="date_from"></input>
                                         </div>
                                     </div>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                 </div>
                             </div>
@@ -351,6 +363,7 @@
                             <span id="post_res"></span>
                         </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <div style="">
                             <button type="button" id="apply_filter" class="btn btn-primary"
                                     style="top:0px;height:30px;color:white;background-color: #00A0AD;border-color: #00A0AD;">
@@ -363,6 +376,8 @@
 <!--                </div>-->
 
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                     </div>
 
                 </div>
@@ -373,6 +388,9 @@
                     </button>
 
                 </div>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             </div>
         </div>

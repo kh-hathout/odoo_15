@@ -40,6 +40,10 @@ class BalanceSheet(models.TransientModel):
         data['journal_items'] = journal_items
         data['report_lines'] = report_lines
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108

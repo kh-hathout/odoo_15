@@ -35,7 +35,11 @@ class AccountAssetCategory(models.Model):
     journal_id = fields.Many2one('account.journal', string='Journal', required=True)
     company_id = fields.Many2one('res.company', string='Company', required=True,
 <<<<<<< HEAD
+<<<<<<< HEAD
                                  default=lambda self: self.env.company)
+=======
+                                 default=lambda self: self.env['res.company']._company_default_get('account.asset.category'))
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                                  default=lambda self: self.env['res.company']._company_default_get('account.asset.category'))
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -107,8 +111,13 @@ class AccountAssetAsset(models.Model):
     code = fields.Char(string='Reference', size=32, readonly=True,
                        states={'draft': [('readonly', False)]})
 <<<<<<< HEAD
+<<<<<<< HEAD
     value = fields.Monetary(string='Gross Value', required=True, readonly=True,
                          states={'draft': [('readonly', False)]})
+=======
+    value = fields.Float(string='Gross Value', required=True, readonly=True,
+                         digits=0, states={'draft': [('readonly', False)]})
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
     value = fields.Float(string='Gross Value', required=True, readonly=True,
                          digits=0, states={'draft': [('readonly', False)]})
@@ -119,7 +128,11 @@ class AccountAssetAsset(models.Model):
     company_id = fields.Many2one('res.company', string='Company', required=True,
                                  readonly=True, states={'draft': [('readonly', False)]},
 <<<<<<< HEAD
+<<<<<<< HEAD
                                  default=lambda self: self.env.company)
+=======
+        default=lambda self: self.env['res.company']._company_default_get('account.asset.asset'))
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
         default=lambda self: self.env['res.company']._company_default_get('account.asset.asset'))
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -155,7 +168,11 @@ class AccountAssetAsset(models.Model):
     method_progress_factor = fields.Float(string='Degressive Factor',
                                           readonly=True, default=0.3, states={'draft': [('readonly', False)]})
 <<<<<<< HEAD
+<<<<<<< HEAD
     value_residual = fields.Monetary(compute='_amount_residual', string='Residual Value')
+=======
+    value_residual = fields.Float(compute='_amount_residual', digits=0, string='Residual Value')
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
     value_residual = fields.Float(compute='_amount_residual', digits=0, string='Residual Value')
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -173,7 +190,11 @@ class AccountAssetAsset(models.Model):
                                             string='Depreciation Lines', readonly=True,
                                             states={'draft': [('readonly', False)], 'open': [('readonly', False)]})
 <<<<<<< HEAD
+<<<<<<< HEAD
     salvage_value = fields.Monetary(string='Salvage Value', readonly=True,
+=======
+    salvage_value = fields.Float(string='Salvage Value', digits=0, readonly=True,
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
     salvage_value = fields.Float(string='Salvage Value', digits=0, readonly=True,
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -277,6 +298,10 @@ class AccountAssetAsset(models.Model):
         return undone_dotation_number
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
     
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -305,8 +330,13 @@ class AccountAssetAsset(models.Model):
                     # ... or fiscalyear depending the number of period
                     if self.method_period == 12:
 <<<<<<< HEAD
+<<<<<<< HEAD
                         depreciation_date = depreciation_date + relativedelta(month=int(self.company_id.fiscalyear_last_month))
                         depreciation_date = depreciation_date + relativedelta(day=int(self.company_id.fiscalyear_last_day))
+=======
+                        depreciation_date = depreciation_date + relativedelta(month=self.company_id.fiscalyear_last_month)
+                        depreciation_date = depreciation_date + relativedelta(day=self.company_id.fiscalyear_last_day)
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                         depreciation_date = depreciation_date + relativedelta(month=self.company_id.fiscalyear_last_month)
                         depreciation_date = depreciation_date + relativedelta(day=self.company_id.fiscalyear_last_day)
@@ -317,6 +347,10 @@ class AccountAssetAsset(models.Model):
                     # depreciation_date set manually from the 'first_depreciation_manual_date' field
                     depreciation_date = self.first_depreciation_manual_date
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -556,6 +590,7 @@ class AccountAssetDepreciationLine(models.Model):
     name = fields.Char(string='Depreciation Name', required=True, index=True)
     sequence = fields.Integer(required=True)
 <<<<<<< HEAD
+<<<<<<< HEAD
     asset_id = fields.Many2one('account.asset.asset', string='Asset',
                                required=True, ondelete='cascade')
     parent_state = fields.Selection(related='asset_id.state',
@@ -576,6 +611,8 @@ class AccountAssetDepreciationLine(models.Model):
                                   related='asset_id.currency_id',
                                   readonly=True)
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
     asset_id = fields.Many2one('account.asset.asset', string='Asset', required=True, ondelete='cascade')
     parent_state = fields.Selection(related='asset_id.state', string='State of Asset')
     amount = fields.Float(string='Current Depreciation', digits=0, required=True)
@@ -585,6 +622,9 @@ class AccountAssetDepreciationLine(models.Model):
     move_id = fields.Many2one('account.move', string='Depreciation Entry')
     move_check = fields.Boolean(compute='_get_move_check', string='Linked', store=True)
     move_posted_check = fields.Boolean(compute='_get_move_posted_check', string='Posted', store=True)
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 
     @api.depends('move_id')
@@ -609,7 +649,11 @@ class AccountAssetDepreciationLine(models.Model):
 
         if post_move and created_moves:
 <<<<<<< HEAD
+<<<<<<< HEAD
             created_moves.filtered(lambda m: any(m.asset_depreciation_ids.mapped('asset_id.category_id.open_asset'))).action_post()
+=======
+            created_moves.filtered(lambda m: any(m.asset_depreciation_ids.mapped('asset_id.category_id.open_asset'))).post()
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
             created_moves.filtered(lambda m: any(m.asset_depreciation_ids.mapped('asset_id.category_id.open_asset'))).post()
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -709,7 +753,12 @@ class AccountAssetDepreciationLine(models.Model):
 
         if post_move and created_moves:
 <<<<<<< HEAD
+<<<<<<< HEAD
             created_moves.action_post()
+=======
+            self.post_lines_and_close_asset()
+            created_moves.post()
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
             self.post_lines_and_close_asset()
             created_moves.post()

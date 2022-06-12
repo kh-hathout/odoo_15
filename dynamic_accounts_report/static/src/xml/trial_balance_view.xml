@@ -50,8 +50,13 @@
                                         <t t-esc="account['name']"/>
                                     </span>
 <<<<<<< HEAD
+<<<<<<< HEAD
                                     <div class="" style="display: inline-block;">
                                         <a type="button" class="dropdown-toggle" data-toggle="dropdown"
+=======
+                                    <div class="dropdown" style="display: inline-block;">
+                                        <a type="button" class="fa fa-caret-down" data-toggle="dropdown"
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                                     <div class="dropdown" style="display: inline-block;">
                                         <a type="button" class="fa fa-caret-down" data-toggle="dropdown"
@@ -82,22 +87,29 @@
                                             <td class="mon_fld">
                                                 <t t-esc="currency[0]"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                 <t t-raw="account['Init_balance']['debit']"/>
                                             </td>
                                             <td class="mon_fld">
                                                 <t t-esc="currency[0]"/>
                                                 <t t-raw="account['Init_balance']['credit']"/>
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                                 <t t-out="account['Init_balance']['debit']"/>
                                             </td>
                                             <td class="mon_fld">
                                                 <t t-esc="currency[0]"/>
                                                 <t t-out="account['Init_balance']['credit']"/>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                             </td>
                                         </t>
                                         <t t-else="">
                                             <td class="mon_fld">
+<<<<<<< HEAD
 <<<<<<< HEAD
                                                 <t t-raw="account['Init_balance']['debit']"/>
                                                 <t t-esc="currency[0]"/>
@@ -105,11 +117,16 @@
                                             <td class="mon_fld">
                                                 <t t-raw="account['Init_balance']['credit']"/>
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                                 <t t-out="account['Init_balance']['debit']"/>
                                                 <t t-esc="currency[0]"/>
                                             </td>
                                             <td class="mon_fld">
                                                 <t t-out="account['Init_balance']['credit']"/>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                                 <t t-esc="currency[0]"/>
                                             </td>
@@ -142,17 +159,23 @@
                                     <td class="mon_fld">
                                         <t t-esc="currency[0]"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
                                         <t t-raw="account['debit']"/>
                                     </td>
                                     <td class="mon_fld">
                                         <t t-esc="currency[0]"/>
                                         <t t-raw="account['credit']"/>
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                         <t t-out="account['debit']"/>
                                     </td>
                                     <td class="mon_fld">
                                         <t t-esc="currency[0]"/>
                                         <t t-out="account['credit']"/>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                     </td>
 
@@ -160,17 +183,23 @@
                                 <t t-else="">
                                     <td class="mon_fld">
 <<<<<<< HEAD
+<<<<<<< HEAD
                                         <t t-raw="account['debit']"/>
                                         <t t-esc="currency[0]"/>
                                     </td>
                                     <td class="mon_fld">
                                         <t t-raw="account['credit']"/>
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                         <t t-out="account['debit']"/>
                                         <t t-esc="currency[0]"/>
                                     </td>
                                     <td class="mon_fld">
                                         <t t-out="account['credit']"/>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                         <t t-esc="currency[0]"/>
                                     </td>
@@ -197,7 +226,11 @@
                                 <strong>
                                     <t t-esc="currency[0]"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <!--                                    <t t-raw="Math.round(debit_total * Math.pow(10, 2)) / Math.pow(10, 2)"/>-->
+=======
+<!--                                    <t t-out="Math.round(debit_total * Math.pow(10, 2)) / Math.pow(10, 2)"/>-->
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 <!--                                    <t t-out="Math.round(debit_total * Math.pow(10, 2)) / Math.pow(10, 2)"/>-->
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -208,7 +241,11 @@
                                 <strong>
                                     <t t-esc="currency[0]"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <!--                                    <t t-raw="Math.round(credit_total * Math.pow(10, 2)) / Math.pow(10, 2)"/>-->
+=======
+<!--                                    <t t-out="Math.round(credit_total * Math.pow(10, 2)) / Math.pow(10, 2)"/>-->
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 <!--                                    <t t-out="Math.round(credit_total * Math.pow(10, 2)) / Math.pow(10, 2)"/>-->
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -221,7 +258,11 @@
                             <td class="mon_fld" style="">
                                 <strong>
 <<<<<<< HEAD
+<<<<<<< HEAD
                                     <t t-raw="Math.round(debit_total * Math.pow(10, 2)) / Math.pow(10, 2)"/>
+=======
+                                    <t t-out="Math.round(debit_total * Math.pow(10, 2)) / Math.pow(10, 2)"/>
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                                     <t t-out="Math.round(debit_total * Math.pow(10, 2)) / Math.pow(10, 2)"/>
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -231,7 +272,11 @@
                             <td class="mon_fld" style="">
                                 <strong>
 <<<<<<< HEAD
+<<<<<<< HEAD
                                     <t t-raw="Math.round(credit_total * Math.pow(10, 2)) / Math.pow(10, 2)"/>
+=======
+                                    <t t-out="Math.round(credit_total * Math.pow(10, 2)) / Math.pow(10, 2)"/>
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                                     <t t-out="Math.round(credit_total * Math.pow(10, 2)) / Math.pow(10, 2)"/>
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -250,6 +295,7 @@
 
     <t t-name="TrialFilterView">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <div class="row" style="margin-right: 10px; margin-left: 10px;">
             <div class="sub_container_left" style="width:70%;">
                 <div class="report_print">
@@ -260,6 +306,8 @@
                     <button type="button" class="btn btn-primary" id="xlsx"
                             style="position: relative;height:30px;color:white;background-color: #00A0AD;border-color: #00A0AD; padding:3px;">
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 
         <div class="" style="position: relative;">
             <div class="sub_container_left">
@@ -270,6 +318,9 @@
                     </button>
                     <button type="button" class="btn btn-primary" id="xlsx"
                             style="left:10px; height:30px;position: relative;color:white;background-color: #00A0AD;border-color: #00A0AD; padding:3px;">
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                         Export (XLSX)
                     </button>
@@ -277,11 +328,14 @@
             </div>
             <br></br>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <div class="sub_container_right row" style="width:30%;height:3%;top:0px;position: relative;">
 
                         <div class="time_range" style="">
                             <a type="button" class="dropdown-toggle" data-toggle="dropdown" >
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             <div class="sub_container_right" style="width:50%;height:3%;right:0px;top:0px;position: absolute;">
                 <div class="" style="right:80x;">
 
@@ -289,11 +343,15 @@
                     <div class="row" style="right:110px;top:0px;position: absolute;width:50;">
                         <div class="time_range" style="">
                             <a type="button" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                 <span class="fa fa-calendar" title="Dates" role="img" aria-label="Dates"></span>
                                 Date Range
                             </a>
                             <div class="dropdown-menu" role="menu">
+<<<<<<< HEAD
 <<<<<<< HEAD
                                 <div class="form-group">
                                     <label class="" for="date_from">Start Date :</label>
@@ -321,6 +379,8 @@
                                     </div>
 
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                 <div class="">
                                     <label class="" for="date_from">Start Date :</label>
                                     <div class="">
@@ -334,6 +394,9 @@
                                             <input type="date" id="date_to"></input>
                                         </div>
                                     </div>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                 </div>
                             </div>
@@ -346,6 +409,7 @@
                             <select class="dropdown-menu  journals" name="states[]" multiple="multiple">
                                 <div role="separator" class="dropdown-divider"></div>
                                 <t t-foreach="filter_data.journals_list" t-as="journal">
+<<<<<<< HEAD
 <<<<<<< HEAD
 
                                      <t t-if="journal[0]=='divider'">
@@ -369,6 +433,11 @@
                                         <t t-esc="journal[1]"/>
                                     </option>
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
+                                    <option t-attf-value="{{journal[0]}}">
+                                        <t t-esc="journal[1]"/>
+                                    </option>
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                                 </t>
                             </select>
                             <span id="journal_res"></span>
@@ -387,6 +456,7 @@
                             <span id="post_res"></span>
                         </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <div style="">
                             <button type="button" id="apply_filter" class="btn btn-primary"
                                     style="top:0px;height:30px;color:white;background-color: #00A0AD;border-color: #00A0AD;">
@@ -400,6 +470,8 @@
 <!--                </div>-->
 
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                     </div>
 
                 </div>
@@ -410,6 +482,9 @@
                     </button>
 
                 </div>
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             </div>
         </div>

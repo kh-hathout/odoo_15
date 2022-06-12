@@ -5,7 +5,11 @@ import io
 import json
 from odoo.exceptions import AccessError, UserError, AccessDenied
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+from odoo.http import request
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
 from odoo.http import request
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -42,7 +46,11 @@ class BalanceSheetView(models.TransientModel):
 
     @api.model
 <<<<<<< HEAD
+<<<<<<< HEAD
     def view_report(self, option, tag, lang):
+=======
+    def view_report(self, option, tag):
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
     def view_report(self, option, tag):
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -68,13 +76,19 @@ class BalanceSheetView(models.TransientModel):
             })
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         company_ids = self.env.companies.ids
         company_domain = [('company_id', 'in', company_ids)]
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         # company_id = self.env.company
         company = self.get_current_company_value()[0]
         company_id = self.env['res.company'].search([('id', '=', int(company))])
         company_domain = [('company_id', '=', company_id.id)]
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         if r.account_tag_ids:
             company_domain.append(
@@ -99,6 +113,7 @@ class BalanceSheetView(models.TransientModel):
             new_records = list(filter(filter_code, records['Accounts']))
             records['Accounts'] = new_records
 <<<<<<< HEAD
+<<<<<<< HEAD
         trans_tag = self.env['ir.translation'].search([('value', '=', tag), ('module', '=', 'dynamic_accounts_report')],
                                                       limit=1).src
         if trans_tag:
@@ -113,6 +128,11 @@ class BalanceSheetView(models.TransientModel):
         account_report_id = self.env['account.financial.report'].search([
             ('name', 'ilike', tag)])
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
+
+        account_report_id = self.env['account.financial.report'].search([
+            ('name', 'ilike', tag)])
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 
         new_data = {'id': self.id, 'date_from': False,
                     'enable_filter': True,
@@ -121,7 +141,11 @@ class BalanceSheetView(models.TransientModel):
                     'target_move': filters['target_move'],
                     'view_format': 'vertical',
 <<<<<<< HEAD
+<<<<<<< HEAD
                     'company_id': self.company_id,
+=======
+                    'company_id': company_id.id,
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                     'company_id': company_id.id,
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -131,7 +155,11 @@ class BalanceSheetView(models.TransientModel):
                                      'date_to': filters['date_to'],
                                      'strict_range': False,
 <<<<<<< HEAD
+<<<<<<< HEAD
                                      'company_id': self.company_id,
+=======
+                                     'company_id': company_id.id,
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                                      'company_id': company_id.id,
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -145,18 +173,24 @@ class BalanceSheetView(models.TransientModel):
 
         for rec in records['Accounts']:
 <<<<<<< HEAD
+<<<<<<< HEAD
             move_line_accounts.append(rec['id'])
             move_lines_dict[rec['id']] = {}
             move_lines_dict[rec['id']]['debit'] = rec['debit']
             move_lines_dict[rec['id']]['credit'] = rec['credit']
             move_lines_dict[rec['id']]['balance'] = rec['balance']
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             move_line_accounts.append(rec['code'])
             move_lines_dict[rec['code']] = {}
             move_lines_dict[rec['code']]['debit'] = rec['debit']
             move_lines_dict[rec['code']]['credit'] = rec['credit']
             move_lines_dict[rec['code']]['balance'] = rec['balance']
 
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         report_lines_move = []
         parent_list = []
@@ -165,7 +199,11 @@ class BalanceSheetView(models.TransientModel):
             for each in obj:
                 if each['report_type'] == 'accounts':
 <<<<<<< HEAD
+<<<<<<< HEAD
                     if each['account'] in move_line_accounts:
+=======
+                    if each['code'] in move_line_accounts:
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                     if each['code'] in move_line_accounts:
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -182,15 +220,21 @@ class BalanceSheetView(models.TransientModel):
         for rec in report_lines_move:
             if rec['report_type'] == 'accounts':
 <<<<<<< HEAD
+<<<<<<< HEAD
                 if rec['account'] in move_line_accounts:
                     rec['debit'] = move_lines_dict[rec['account']]['debit']
                     rec['credit'] = move_lines_dict[rec['account']]['credit']
                     rec['balance'] = move_lines_dict[rec['account']]['balance']
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
                 if rec['code'] in move_line_accounts:
                     rec['debit'] = move_lines_dict[rec['code']]['debit']
                     rec['credit'] = move_lines_dict[rec['code']]['credit']
                     rec['balance'] = move_lines_dict[rec['code']]['balance']
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 
         parent_list = list(set(parent_list))
@@ -250,7 +294,13 @@ class BalanceSheetView(models.TransientModel):
             assign_sum(final_report_lines)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         company_id = self.env.company
+=======
+        # company_id = self.env.company
+        company = self.get_current_company_value()[0]
+        company_id = self.env['res.company'].search([('id', '=', int(company))])
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
         # company_id = self.env.company
         company = self.get_current_company_value()[0]
@@ -352,18 +402,24 @@ class BalanceSheetView(models.TransientModel):
             [('id', '=', option[0])])
         default_filters = {}
 <<<<<<< HEAD
+<<<<<<< HEAD
         company_ids = self.env.companies.ids
         company_domain = [('company_id', 'in', company_ids)]
         company_names = ', '.join(self.env.companies.mapped('name'))
         journal_ids = r.journal_ids if r.journal_ids else self.env[
             'account.journal'].search(company_domain, order="company_id, name")
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         company = self.get_current_company_value()[0]
         company_id = self.env['res.company'].search([('id', '=', int(company))])
         # company_id = self.env.company
         company_domain = [('company_id', '=', company_id.id)]
         journals = r.journal_ids if r.journal_ids else self.env[
             'account.journal'].search(company_domain)
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         analytics = self.analytic_ids if self.analytic_ids else self.env[
             'account.analytic.account'].search(
@@ -375,7 +431,11 @@ class BalanceSheetView(models.TransientModel):
             self.env[
                 'account.analytic.tag'].sudo().search(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 ['|', ('company_id', 'in', company_ids),
+=======
+                ['|', ('company_id', '=', company_id.id),
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
                 ['|', ('company_id', '=', company_id.id),
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -385,6 +445,7 @@ class BalanceSheetView(models.TransientModel):
             company_domain.append(
                 ('tag_ids', 'in', r.account_tag_ids.ids))
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         accounts_ids = self.account_ids if self.account_ids else self.env[
             'account.account'].search(company_domain, order="company_id, name")
@@ -413,10 +474,15 @@ class BalanceSheetView(models.TransientModel):
         accounts = self.account_ids if self.account_ids else self.env[
             'account.account'].search(company_domain)
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
+        accounts = self.account_ids if self.account_ids else self.env[
+            'account.account'].search(company_domain)
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         filter_dict = {
             'journal_ids': r.journal_ids.ids,
             'account_ids': r.account_ids.ids,
             'analytic_ids': r.analytic_ids.ids,
+<<<<<<< HEAD
 <<<<<<< HEAD
             'company_id': company_ids,
             'date_from': r.date_from,
@@ -427,6 +493,8 @@ class BalanceSheetView(models.TransientModel):
             'analytic_list': [(anl.id, anl.name) for anl in analytics],
             'company_name': company_names,
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             'company_id': company_id.id,
             'date_from': r.date_from,
             'date_to': r.date_to,
@@ -435,6 +503,9 @@ class BalanceSheetView(models.TransientModel):
             'accounts_list': [(a.id, a.name) for a in accounts],
             'analytic_list': [(anl.id, anl.name) for anl in analytics],
             'company_name': company_id and company_id.name,
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
             'analytic_tag_ids': r.analytic_tag_ids.ids,
             'analytic_tag_list': [(anltag.id, anltag.name) for anltag in
@@ -450,14 +521,20 @@ class BalanceSheetView(models.TransientModel):
         display_account = data['display_account']
         init_balance = True
 <<<<<<< HEAD
+<<<<<<< HEAD
         journals = data['journals']
         accounts = self.env['account.account'].search([])
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         company = self.get_current_company_value()[0]
         company_id = self.env['res.company'].search([('id', '=', int(company))])
         company_domain = [('company_id', '=', company_id.id)]
         journals = data['journals']
         accounts = self.env['account.account'].search(company_domain)
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         if not accounts:
             raise UserError(_("No Accounts Found! Please Add One"))
@@ -522,18 +599,28 @@ class BalanceSheetView(models.TransientModel):
         MoveLine = self.env['account.move.line']
         move_lines = {x: [] for x in accounts.ids}
 <<<<<<< HEAD
+<<<<<<< HEAD
         currency_id = self.env.company.currency_id
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         company = self.get_current_company_value()[0]
         company_id = self.env['res.company'].search([('id', '=', int(company))])
         # currency_id = self.env.company.currency_id
         currency_id = company_id.currency_id
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 
         # Prepare sql query base on selected parameters from wizard
         tables, where_clause, where_params = MoveLine._query_get()
         wheres = [""]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        where_params[0] = int(company_id.id)
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 =======
         where_params[0] = int(company_id.id)
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
@@ -575,6 +662,7 @@ class BalanceSheetView(models.TransientModel):
 
         # Get move lines base on sql query and Calculate the total balance of move lines
 <<<<<<< HEAD
+<<<<<<< HEAD
         sql = ('''SELECT l.account_id AS account_id, a.code AS code,a.id AS id, a.name AS name, ROUND(COALESCE(SUM(l.debit),0),2) AS debit, ROUND(COALESCE(SUM(l.credit),0),2) AS credit, ROUND(COALESCE(SUM(l.balance),0),2) AS balance
 
                                     FROM account_move_line l\
@@ -590,6 +678,8 @@ class BalanceSheetView(models.TransientModel):
 
 
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         sql = ('''SELECT l.id AS lid,m.id AS move_id, l.account_id AS account_id,
                     l.date AS ldate, j.code AS lcode, l.currency_id, l.amount_currency, l.ref AS lref,
                     l.name AS lname, COALESCE(l.debit,0) AS debit, COALESCE(l.credit,0) AS credit, 
@@ -604,6 +694,9 @@ class BalanceSheetView(models.TransientModel):
                     JOIN account_journal j ON (l.journal_id=j.id)\
                     JOIN account_account acc ON (l.account_id = acc.id) '''
                + WHERE + new_final_filter + ''' GROUP BY l.id, m.id,  l.account_id, l.date, j.code, l.currency_id, l.amount_currency, l.ref, l.name, m.name, c.symbol, c.position, p.name''')
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         if data.get('accounts'):
             params = tuple(where_params)
@@ -611,6 +704,7 @@ class BalanceSheetView(models.TransientModel):
             params = (tuple(accounts.ids),) + tuple(where_params)
 
         cr.execute(sql, params)
+<<<<<<< HEAD
 <<<<<<< HEAD
         account_res = cr.dictfetchall()
         return account_res
@@ -648,6 +742,8 @@ class BalanceSheetView(models.TransientModel):
     @api.model
     def _get_currency(self):
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 
         for row in cr.dictfetchall():
             balance = 0
@@ -693,16 +789,22 @@ class BalanceSheetView(models.TransientModel):
     def _get_currency(self):
         company = self.get_current_company_value()[0]
         company_id = self.env['res.company'].search([('id', '=', int(company))])
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         journal = self.env['account.journal'].browse(
             self.env.context.get('default_journal_id', False))
         if journal.currency_id:
             return journal.currency_id.id
 <<<<<<< HEAD
+<<<<<<< HEAD
         currency_array = [self.env.company.currency_id.symbol,
                           self.env.company.currency_id.position]
         return currency_array
 =======
+=======
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
         lang = self.env.user.lang
         if not lang:
             lang = 'en_US'
@@ -726,6 +828,9 @@ class BalanceSheetView(models.TransientModel):
         if len(cookies_cids) == 1:
             cookies_cids.append(0)
         return cookies_cids
+<<<<<<< HEAD
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+=======
 >>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
 
     def get_dynamic_xlsx_report(self, options, response, report_data, dfr_data):
