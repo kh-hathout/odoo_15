@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <!--owl 处理继承继承-->
+<<<<<<< HEAD
+    <t t-inherit="web.UserMenu" t-inherit-mode="extension" owl="1">
+        <xpath expr="//td[hasclass('client-line-email')]" position="after">
+            <t t-jquery="a[data-menu='documentation']" t-operation="before">
+                <switch-lang/>
+                <a role="menuitem" href="#" data-menu="debug" class="dropdown-item">Activate the developer mode</a>
+                <a role="menuitem" href="#" data-menu="debugassets" class="dropdown-item">Activate the developer mode (with assets)</a>
+                <a role="menuitem" href="#" data-menu="quitdebug" class="dropdown-item">Deactivate the developer mode</a>
+                <div role="separator" class="dropdown-divider"/>
+                <a role="menuitem" href="#" data-menu="documentation_dev" class="dropdown-item">Developer Manual</a>
+            </t>
+        </xpath>
+=======
+    <t t-name="UserMenu" t-inherit="web.UserMenu" t-inherit-mode="extension" owl="1">
+        <xpath expr="//td[hasclass('client-line-email')]" position="after">
+        <t t-jquery="a[data-menu='documentation']" t-operation="before">
+            <switch-lang/>
+            <a role="menuitem" href="#" data-menu="debug" class="dropdown-item">Activate the developer mode</a>
+            <a role="menuitem" href="#" data-menu="debugassets" class="dropdown-item">Activate the developer mode (with assets)</a>
+            <a role="menuitem" href="#" data-menu="quitdebug" class="dropdown-item">Deactivate the developer mode</a>
+            <div role="separator" class="dropdown-divider"/>
+            <a role="menuitem" href="#" data-menu="documentation_dev" class="dropdown-item">Developer Manual</a>
+        </t>
+>>>>>>> 7c978808bacd4a1cc1fb5707f4bd586d98d14108
+    </t>
+</templates>
